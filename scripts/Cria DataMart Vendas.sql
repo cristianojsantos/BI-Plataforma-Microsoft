@@ -5,6 +5,17 @@ GO
 USE DMVenda
 GO
 
+CREATE TABLE dbo.ConfiguraExtracao
+(
+	ConfiguraId INT IDENTITY(1,1) NOT NULL,
+	NomeExtracao VARCHAR(30) NOT NULL,
+	DataInicio DATE NOT NULL,
+	DataFim DATE NOT NULL,
+	DiaRetroativo INT NOT NULL DEFAULT 0,
+	CONSTRAINT  ConfiguraExtracaoPK PRIMARY KEY (ConfiguraId) 
+)
+GO
+
 CREATE TABLE dbo.DimTempo
 (
 	 SKTempo INT NOT NULL,
