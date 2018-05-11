@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ETL", "ETL", "{505E1EEB-F095-4539-97B3-E875D11C1C91}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETL.CursoBI", "ETL.CursoBI\ETL.CursoBI.dtproj", "{37776732-99BA-481F-A590-6D418677AAE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37776732-99BA-481F-A590-6D418677AAE2}.Development|Default.ActiveCfg = Development
+		{37776732-99BA-481F-A590-6D418677AAE2}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37776732-99BA-481F-A590-6D418677AAE2} = {505E1EEB-F095-4539-97B3-E875D11C1C91}
+	EndGlobalSection
+EndGlobal
