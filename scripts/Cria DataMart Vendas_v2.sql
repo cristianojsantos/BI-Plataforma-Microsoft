@@ -11,6 +11,7 @@ CREATE TABLE dbo.ConfiguraExtracao
 	DataInicio DATE NOT NULL,
 	DataFim DATE NOT NULL,
 	DiaRetroativo INT NOT NULL DEFAULT 0,
+	ExtracaoAtiva BIT NOT NULL DEFAULT 0,
 	CONSTRAINT  ConfiguraExtracaoPK PRIMARY KEY (ConfiguraId) 
 )
 GO
