@@ -68,12 +68,13 @@ GO
 
 CREATE TABLE dbo.FatoVenda
 (
+	CodigoVenda INT NOT NULL,
 	SKTempo INT NOT NULL,
 	SKLoja INT NOT NULL,
 	SKVendedor INT NOT NULL,
 	SKProduto INT NOT NULL,
 	ValorVenda NUMERIC(10,2) NOT NULL,
-	CONSTRAINT FatoVendaPK PRIMARY KEY (SKTempo, SKLoja, SKVendedor, SKProduto)
+	CONSTRAINT FatoVendaPK PRIMARY KEY (CodigoVenda, SKTempo, SKLoja, SKVendedor, SKProduto)
 )
 GO
 
