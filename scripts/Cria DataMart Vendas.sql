@@ -46,7 +46,7 @@ CREATE TABLE dbo.DimVendedor
 	NomeVendedor VARCHAR(100) NOT NULL,
 	CodigoLoja INT NOT NULL,
 	NomeLoja VARCHAR(100) NOT NULL,
-	StatusLoja VARCHAR(15) NOT NULL,
+	StatusVendedor VARCHAR(15) NOT NULL,
 	CONSTRAINT DimVendedorPK PRIMARY KEY (SKVendedor)
 )
 GO
@@ -68,12 +68,14 @@ GO
 
 CREATE TABLE dbo.FatoVenda
 (
+	CodigoVenda INT NOT NULL,
 	SKTempo INT NOT NULL,
 	SKLoja INT NOT NULL,
 	SKVendedor INT NOT NULL,
 	SKProduto INT NOT NULL,
 	ValorVenda NUMERIC(10,2) NOT NULL,
-	CONSTRAINT FatoVendaPK PRIMARY KEY (SKTempo, SKLoja, SKVendedor, SKProduto)
+	Quantidade INT NOT NULL,
+	CONSTRAINT FatoVendaPK PRIMARY KEY (CodigoVenda, SKTempo, SKLoja, SKVendedor, SKProduto)
 )
 GO
 
