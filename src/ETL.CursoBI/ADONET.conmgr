@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADONET"
+  DTS:DTSID="{EB98FF8D-F973-474A-986E-E96397ACB596}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=CRISJS;Initial Catalog=DMVendas;Integrated Security=True;Application Name=SSIS-CargaGeral-{EB98FF8D-F973-474A-986E-E96397ACB596}CRISJS.DMVendas;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
