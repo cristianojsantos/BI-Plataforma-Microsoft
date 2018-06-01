@@ -1,7 +1,7 @@
 USE DMVendas
 GO
 
-DECLARE @DataIni DATE = '2016-01-01'
+DECLARE @DataIni DATE = '2015-01-01'
 DECLARE @DataFim DATE = '2019-12-31'
 
 DECLARE @DataCurrent DATE
