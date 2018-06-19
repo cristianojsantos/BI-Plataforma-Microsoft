@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ETL.CursoBI</Name>
-    <LastWriteTime>2018-05-31T04:48:08.0221264Z</LastWriteTime>
+    <LastWriteTime>2018-06-19T18:31:22.259946Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-    <Salt>IocZkN+D</Salt>
-    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAxJYjzopKGkWq2NjFlRLA7gAAAAACAAAAAAAQZgAAAAEAACAAAACO23vJe9IEK83/02m/1ab9DVv0FxTPunYm0z4TtF3khwAAAAAOgAAAAAIAACAAAABC2N6jCs781CzL/Pz+ywA00lOWbMWWDOdBtHWIfLXjCzAAAAB7ZfGfbYECp18PCy4MeEpv/QUeo/6u6xkWpbr5duEZPFYz4qlUvx4Z5eacL3/kwBdAAAAAA0BkbolNQL53UZAlyU5SckVrdZ32Fo7kk0HjABdtIWL2sZ0HL6qH935G/JoF7iD4dKDi+PDdnAoGNNCKfM9pFQ==</LastKnownProtectedHashedPassword>
+    <Salt>ecOdzvXb</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8e8dIt1950yNzNF5cSbsfgAAAAACAAAAAAADZgAAwAAAABAAAAA1Qfk6vNWpiqebpR6AfDaEAAAAAASAAACgAAAAEAAAAI4CHrnBn3bwRtdC1ebb0a8oAAAALN+WV+fUzH2uSw5udMG3DnRHK84+3tnrJjo6kAe/jyBpaBEI45c88RQAAADfQJn1otzOIumkBYuzEsO81tMcPA==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>CargaGeral.dtsx</Name>
-      <LastWriteTime>2018-05-31T04:53:29.6277566Z</LastWriteTime>
+      <LastWriteTime>2018-06-19T20:38:51.8687017Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>CMU0vaVs</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAxJYjzopKGkWq2NjFlRLA7gAAAAACAAAAAAAQZgAAAAEAACAAAAAU+29Rqf4X0uciSRXSxR9DYFi3OyQDll75CbG/GnKVhQAAAAAOgAAAAAIAACAAAADt4yij32WDuMWOM+xgkzM9aeSn1zDwTd5F0TWhZfOo/TAAAACjgQjA3hKlhrge2xTHEDXc9z+qFOQ/G/pnHAPomCs5EXXNHwrV86NnyKNyCn1X/atAAAAAiAcKcUFKLEGMY/O2oRa6r+4UB8QVYdQPoecBpbn8mSukWj8NLKo/Eku3XXqW3LKMTPToIbzcBSGvZNuusKmIFg==</LastKnownProtectedHashedPassword>
+      <Salt>vw3PhhQw</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8e8dIt1950yNzNF5cSbsfgAAAAACAAAAAAADZgAAwAAAABAAAACrQ+Jf0zj9UKqfpw5qPEryAAAAAASAAACgAAAAEAAAAMPNqtOnCqa3LZv6OY7e/68oAAAAIwj7xMGcV3qpdp5AaFUgZlg/hAXH1vUS4xU4EoGmDsCo/BBxBxqbLRQAAADpRb3nPsGt9SFAW5J+Sgz9qXWrTw==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>

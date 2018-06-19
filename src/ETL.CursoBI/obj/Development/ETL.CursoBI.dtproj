@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">CRISJS</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="YM9d2/RD354=" SSIS:IV="J6Y7f6DfZFobbhF2VRYeXw==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">4Q2OCmLYzY6JR7+uiegdDGYLDDh2E8R3h24geYCzBG3aPso++LBg6jeZtuVwFTkWmBfYsDTU/Vk/fcJBmhr16n4zrNdKraTR01MHx1kbX/Gn8i7zQ7pWMKtM8Rs3Mgg5OBkfEuDR8h9P/GCPGv6MqB5Z/4FCnws2VS1XfgvFNvmBE4d6faeI+ZlvImfXXMI2</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="Q+ZnKdU1lKs=" SSIS:IV="dZ+VxejVDOhabsv7rhVq5w==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">1u0rKUZK0cRqZPSVupU8srpxsenWkX6oGQjXmGKtPGRSyBoHFev63mbkF9GBE8rGmJ3jQYRvbgIr2RDBFKFmg10IGHnDp9cO51vQwxDF/qIZhn8ttSuP5it3KoVR9UJ6b/v87cxWh3aCgqsltbmxZhtfUm3yKcsqzP6v9Fr2XEYHOaYwSVG7pm3tyV5UWR1p</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -315,7 +315,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=CRISJS;Initial Catalog=DMVendas;Integrated Security=True;Application Name=SSIS-CargaGeral-{EB98FF8D-F973-474A-986E-E96397ACB596}CRISJS.DMVendas;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=DMVendas;Integrated Security=True;Application Name=SSIS-CargaGeral-{EB98FF8D-F973-474A-986E-E96397ACB596}CRISJS.DMVendas;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -374,7 +374,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">CRISJS</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">.</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -400,10 +400,10 @@
                 <SSIS:Property SSIS:Name="Name">CargaGeral</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">45</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">46</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{900E3947-4DB4-4D21-B051-B5E108C72E9A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{71DDBADA-282E-4E5A-A11C-3F7201B1FF30}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
