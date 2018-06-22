@@ -34,7 +34,7 @@ CREATE TABLE dbo.DimLoja
 	NomeLoja VARCHAR(100) NOT NULL,
 	EnderecoLoja VARCHAR(200) NOT NULL,
 	DataInicio DATE NOT NULL,
-	DataFim DATE NOT NULL,
+	DataFim DATE NULL,
 	CONSTRAINT DimLojaPK PRIMARY KEY (SKLoja)
 )
 GO
@@ -47,7 +47,7 @@ CREATE TABLE dbo.DimVendedor
 	CodigoLoja INT NOT NULL,
 	NomeLoja VARCHAR(100) NOT NULL,
 	DataInicio DATE NOT NULL,
-	DataFim DATE NOT NULL,
+	DataFim DATE NULL,
 	CONSTRAINT DimVendedorPK PRIMARY KEY (SKVendedor)
 )
 GO
@@ -63,7 +63,7 @@ CREATE TABLE dbo.DimProduto
 	CodigoSubCategoria INT NOT NULL,
 	DescricaoSubCategoria VARCHAR(40) NOT NULL,
 	DataInicio DATE NOT NULL,
-	DataFim DATE NOT NULL,
+	DataFim DATE NULL,
 	CONSTRAINT DimProdutoPK PRIMARY KEY (SKProduto)
 )
 GO
