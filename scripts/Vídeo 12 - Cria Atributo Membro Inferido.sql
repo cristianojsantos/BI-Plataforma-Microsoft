@@ -1,0 +1,5 @@
+USE DMVendas
+GO
+
+ALTER TABLE dbo.DimProduto ADD MembroInferido BIT NOT NULL DEFAULT 0
+GO

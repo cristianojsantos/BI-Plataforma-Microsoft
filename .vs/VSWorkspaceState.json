@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\ETL.CursoBI"
   ],
   "SelectedNode": "\\src\\CursoBI.sln",
   "PreviewInSolutionExplorer": false

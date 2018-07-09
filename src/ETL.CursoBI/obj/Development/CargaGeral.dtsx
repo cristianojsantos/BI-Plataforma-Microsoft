@@ -12,39 +12,10 @@
   DTS:ObjectName="CargaGeral"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{71DDBADA-282E-4E5A-A11C-3F7201B1FF30}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{E5529AEC-8775-4B33-BADF-E368072F2251}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{95EADD77-C284-48DA-8DCA-FECD7C8C38A0}"
-      DTS:ObjectName="Flat File Connection Manager">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1046"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\crisj\Desktop\CargaLoja.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="cod_loja"
-              DTS:DTSID="{BD1B6045-4BE3-416A-A7A7-43599558675B}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -1633,14 +1604,14 @@
               startId="Package\DFT DimLoja\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[Derived Column Output]"
-              endId="Package\DFT DimLoja\Data Conversion.Inputs[Data Conversion Input]"
-              name="Derived Column Output"
-              startId="Package\DFT DimLoja\Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DFT DimLoja.Paths[Derived Column Output1]"
               endId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Derived Column Output"
               startId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT DimLoja.Paths[Derived Column Output1]"
+              endId="Package\DFT DimLoja\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DFT DimLoja\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[Derived Column Output2]"
               endId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input]"
@@ -2138,6 +2109,10 @@
                       dataType="str"
                       length="15"
                       name="StatusProduto" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MembroInferido]"
+                      dataType="bool"
+                      name="MembroInferido" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2619,6 +2594,240 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               </outputs>
             </component>
             <component
+              refId="Package\DFT DimProduto\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProduto] SET [CodigoCategoria] = ?,[CodigoSubCategoria] = ?,[DescricaoCategoria] = ?,[DescricaoProduto] = ?,[DescricaoSubCategoria] = ?,[ValorCompra] = ?,[ValorProduto] = ?,[MembroInferido] = '0' WHERE [CodigoProduto] = ? AND [MembroInferido] = '1'</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DimProduto\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cod_categoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_categoria"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cod_produto]"
+                      cachedDataType="i4"
+                      cachedName="cod_produto"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cod_subcategoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_subcategoria"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[desc_categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="desc_categoria"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT DimProduto\Lookup Categoria.Outputs[Lookup Match Output].Columns[desc_categoria]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[desc_produto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="desc_produto"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[desc_produto]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[desc_subcategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="desc_subcategoria"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT DimProduto\Lookup SubCategoria.Outputs[Lookup Match Output].Columns[desc_subcategoria]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DC_valor_compra]"
+                      cachedDataType="numeric"
+                      cachedName="DC_valor_compra"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DFT DimProduto\Data Conversion.Outputs[Data Conversion Output].Columns[DC_valor_compra]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DC_valor_produto]"
+                      cachedDataType="numeric"
+                      cachedName="DC_valor_produto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\DFT DimProduto\Data Conversion.Outputs[Data Conversion Output].Columns[DC_valor_produto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="numeric"
+                      name="Param_5"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="numeric"
+                      name="Param_6"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT DimProduto\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -2832,7 +3041,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorCompra], [ValorProduto],[StatusProduto] FROM [dbo].[DimProduto]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorCompra], [ValorProduto],[StatusProduto],[MembroInferido] FROM [dbo].[DimProduto]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -2848,11 +3057,11 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                 <property
                   dataType="System.String"
                   description="Specifies the column name for the inferred member."
-                  name="InferredMemberIndicator"></property>
+                  name="InferredMemberIndicator">MembroInferido</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether inferred member updates are detected."
-                  name="EnableInferredMember">false</property>
+                  name="EnableInferredMember">true</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the transformation fails when a lookup of an existing record fails."
@@ -3045,6 +3254,10 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                       dataType="str"
                       length="15"
                       name="StatusProduto" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MembroInferido]"
+                      dataType="bool"
+                      name="MembroInferido" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3502,6 +3715,11 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               endId="Package\DFT DimProduto\Derived Column.Inputs[Derived Column Input]"
               name="Historical Attribute Inserts Output"
               startId="Package\DFT DimProduto\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\DFT DimProduto.Paths[Inferred Member Updates Output]"
+              endId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\DFT DimProduto\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
             <path
               refId="Package\DFT DimProduto.Paths[Lookup Match Output]"
               endId="Package\DFT DimProduto\Lookup Categoria.Inputs[Lookup Input]"
@@ -4799,6 +5017,44 @@ where [refTable].[CodigoLoja] = ?</property>
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKLoja]"
+                      cachedDataType="i4"
+                      cachedName="SKLoja"
+                      externalMetadataColumnId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKLoja]"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKLoja]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKVendedor]"
+                      cachedDataType="i4"
+                      cachedName="SKVendedor"
+                      externalMetadataColumnId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKVendedor]"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKVendedor]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKProduto]"
+                      cachedDataType="i4"
+                      cachedName="SKProduto"
+                      externalMetadataColumnId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKProduto]"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKProduto]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKTempo]"
+                      cachedDataType="i4"
+                      cachedName="SKTempo"
+                      externalMetadataColumnId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKTempo]"
+                      lineageId="Package\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output].Columns[SKTempo]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[valor_unitario]"
+                      cachedDataType="r8"
+                      cachedName="valor_unitario"
+                      externalMetadataColumnId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ValorVenda]"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[valor_unitario]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[cod_venda]"
+                      cachedDataType="i4"
+                      cachedName="cod_venda"
+                      externalMetadataColumnId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CodigoVenda]"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_venda]" />
+                  </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
@@ -4871,7 +5127,7 @@ where [refTable].[CodigoLoja] = ?</property>
                       refId="Package\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input].Columns[data_venda]"
                       cachedDataType="dbTimeStamp"
                       cachedName="data_venda"
-                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]" />
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[data_venda]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4896,7 +5152,7 @@ where [refTable].[CodigoLoja] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[data_venda]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -4923,6 +5179,311 @@ where [refTable].[CodigoLoja] = ?</property>
                       refId="Package\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT FatoVenda\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input].Columns[cod_produto]"
+                      cachedDataType="i4"
+                      cachedName="cod_produto"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input].Columns[cod_categoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_categoria"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input].Columns[cod_subcategoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_subcategoria"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input].Columns[valor_unitario]"
+                      cachedDataType="r8"
+                      cachedName="valor_unitario"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoProduto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoProduto]"
+                      name="CodigoProduto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)cod_produto</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoProduto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoProduto]"
+                      name="DescricaoProduto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,60,1252)"Não Informado"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,60,1252)"Não Informado"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[ValorProduto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[ValorProduto]"
+                      name="ValorProduto"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_NUMERIC,10,2)#{Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,10,2)valor_unitario</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[ValorCompra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[ValorCompra]"
+                      name="ValorCompra"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_NUMERIC,10,2)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,10,2)0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoCategoria]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoCategoria]"
+                      name="CodigoCategoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)cod_categoria</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoCategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoCategoria]"
+                      name="DescricaoCategoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,40,1252)"Não Informado"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,40,1252)"Não Informado"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoSubCategoria]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoSubCategoria]"
+                      name="CodigoSubCategoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)cod_subcategoria</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoSubCategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoSubCategoria]"
+                      name="DescricaoSubCategoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,40,1252)"Não Informado"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,40,1252)"Não Informado"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[StatusProduto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[StatusProduto]"
+                      name="StatusProduto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,15,1252)"Current"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,15,1252)"Current"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[MembroInferido]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[MembroInferido]"
+                      name="MembroInferido"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)"True"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)"True"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5132,7 +5693,7 @@ where [refTable].[CodigoProduto] = ? and [refTable].[CodigoCategoria] = ? and [r
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -5232,7 +5793,6 @@ where [refTable].[CodigoProduto] = ? and [refTable].[CodigoCategoria] = ? and [r
                 <output
                   refId="Package\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input]">
@@ -5279,6 +5839,165 @@ where [refTable].[CodigoProduto] = ? and [refTable].[CodigoCategoria] = ? and [r
                       refId="Package\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup DimProduto - Membro Inferido"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM dbo.DimProduto
+WHERE StatusProduto = 'Current'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM dbo.DimProduto P WHERE P.CodigoProduto = ? AND P.StatusProduto = 'Current' AND MembroInferido = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKProduto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CodigoProduto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DescricaoProduto" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ValorProduto" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ValorCompra" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="CodigoCategoria" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DescricaoCategoria" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CodigoSubCategoria" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DescricaoSubCategoria" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusProduto" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MembroInferido" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Connections[OleDbConnection]"
+                  connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Inputs[Lookup Input].Columns[cod_produto]"
+                      cachedDataType="i4"
+                      cachedName="cod_produto"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CodigoProduto</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Match Output].Columns[SKProduto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Match Output].Columns[SKProduto]"
+                      name="SKProduto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SKProduto</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5607,6 +6326,299 @@ where [refTable].[CodigoVendedor] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DFT FatoVenda\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO [dbo].[DimProduto]
+           ([CodigoProduto]
+           ,[DescricaoProduto]
+           ,[ValorProduto]
+           ,[ValorCompra]
+           ,[CodigoCategoria]
+           ,[DescricaoCategoria]
+           ,[CodigoSubCategoria]
+           ,[DescricaoSubCategoria]
+           ,[StatusProduto]
+           ,[MembroInferido])
+     VALUES
+           (?
+           ,?
+           ,?
+           ,?
+           ,?
+           ,?
+           ,?
+           ,?
+           ,?
+           ,?)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT FatoVenda\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[CodigoProduto]"
+                      cachedDataType="i4"
+                      cachedName="CodigoProduto"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoProduto]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[DescricaoProduto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="DescricaoProduto"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoProduto]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[ValorProduto]"
+                      cachedDataType="numeric"
+                      cachedName="ValorProduto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[ValorProduto]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[ValorCompra]"
+                      cachedDataType="numeric"
+                      cachedName="ValorCompra"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[ValorCompra]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[CodigoCategoria]"
+                      cachedDataType="i4"
+                      cachedName="CodigoCategoria"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoCategoria]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[DescricaoCategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="DescricaoCategoria"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoCategoria]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[CodigoSubCategoria]"
+                      cachedDataType="i4"
+                      cachedName="CodigoSubCategoria"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[CodigoSubCategoria]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[DescricaoSubCategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="DescricaoSubCategoria"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[DescricaoSubCategoria]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[StatusProduto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="StatusProduto"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[StatusProduto]" />
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[MembroInferido]"
+                      cachedDataType="bool"
+                      cachedName="MembroInferido"
+                      externalMetadataColumnId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[MembroInferido]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="bool"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT FatoVenda\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -5871,6 +6883,419 @@ where [refTable].[CodigoVendedor] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DFT FatoVenda\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[cod_venda]"
+                      cachedDataType="i4"
+                      cachedName="cod_venda"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_venda]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_venda]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[cod_vendedor]"
+                      cachedDataType="i4"
+                      cachedName="cod_vendedor"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_vendedor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_vendedor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[cod_loja]"
+                      cachedDataType="i4"
+                      cachedName="cod_loja"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_loja]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[data_venda]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="data_venda"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[data_venda]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[cod_produto]"
+                      cachedDataType="i4"
+                      cachedName="cod_produto"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_produto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[cod_categoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_categoria"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[cod_subcategoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_subcategoria"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[quantidade]"
+                      cachedDataType="i4"
+                      cachedName="quantidade"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantidade]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[quantidade]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[valor_unitario]"
+                      cachedDataType="r8"
+                      cachedName="valor_unitario"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[valor_unitario]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[SKLoja]"
+                      cachedDataType="i4"
+                      cachedName="SKLoja"
+                      lineageId="Package\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output].Columns[SKLoja]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKLoja]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[SKVendedor]"
+                      cachedDataType="i4"
+                      cachedName="SKVendedor"
+                      lineageId="Package\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output].Columns[SKVendedor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKVendedor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1].Columns[SKProduto]"
+                      cachedDataType="i4"
+                      cachedName="SKProduto"
+                      lineageId="Package\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output].Columns[SKProduto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKProduto]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[cod_venda]"
+                      cachedDataType="i4"
+                      cachedName="cod_venda"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_venda]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_venda]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[cod_vendedor]"
+                      cachedDataType="i4"
+                      cachedName="cod_vendedor"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_vendedor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_vendedor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[cod_loja]"
+                      cachedDataType="i4"
+                      cachedName="cod_loja"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_loja]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[data_venda]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="data_venda"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[data_venda]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[cod_produto]"
+                      cachedDataType="i4"
+                      cachedName="cod_produto"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_produto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[cod_categoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_categoria"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[cod_subcategoria]"
+                      cachedDataType="i4"
+                      cachedName="cod_subcategoria"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[quantidade]"
+                      cachedDataType="i4"
+                      cachedName="quantidade"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantidade]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[quantidade]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[valor_unitario]"
+                      cachedDataType="r8"
+                      cachedName="valor_unitario"
+                      lineageId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[valor_unitario]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[SKLoja]"
+                      cachedDataType="i4"
+                      cachedName="SKLoja"
+                      lineageId="Package\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output].Columns[SKLoja]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKLoja]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[SKVendedor]"
+                      cachedDataType="i4"
+                      cachedName="SKVendedor"
+                      lineageId="Package\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output].Columns[SKVendedor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKVendedor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2].Columns[SKProduto]"
+                      cachedDataType="i4"
+                      cachedName="SKProduto"
+                      lineageId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Match Output].Columns[SKProduto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKProduto]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_venda]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_venda]"
+                      name="cod_venda" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_vendedor]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_vendedor]"
+                      name="cod_vendedor" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_loja]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_loja]"
+                      name="cod_loja" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[data_venda]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[data_venda]"
+                      name="data_venda" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_produto]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_produto]"
+                      name="cod_produto" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_categoria]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_categoria]"
+                      name="cod_categoria" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_subcategoria]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[cod_subcategoria]"
+                      name="cod_subcategoria" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[quantidade]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[quantidade]"
+                      name="quantidade" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[valor_unitario]"
+                      dataType="r8"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[valor_unitario]"
+                      name="valor_unitario" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKLoja]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKLoja]"
+                      name="SKLoja" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKVendedor]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKVendedor]"
+                      name="SKVendedor" />
+                    <outputColumn
+                      refId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKProduto]"
+                      dataType="i4"
+                      lineageId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1].Columns[SKProduto]"
+                      name="SKProduto" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -5878,6 +7303,11 @@ where [refTable].[CodigoVendedor] = ?</property>
               endId="Package\DFT FatoVenda\Lookup DimTempo.Inputs[Lookup Input]"
               name="Data Conversion Output"
               startId="Package\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT FatoVenda.Paths[Derived Column Output]"
+              endId="Package\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\DFT FatoVenda\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT FatoVenda.Paths[Lookup Match Output]"
               endId="Package\DFT FatoVenda\Lookup DimVendedor.Inputs[Lookup Input]"
@@ -5890,19 +7320,39 @@ where [refTable].[CodigoVendedor] = ?</property>
               startId="Package\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT FatoVenda.Paths[Lookup Match Output2]"
-              endId="Package\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input]"
-              name="Lookup Match Output"
-              startId="Package\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\DFT FatoVenda.Paths[Lookup Match Output3]"
               endId="Package\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input]"
               name="Lookup Match Output"
               startId="Package\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT FatoVenda.Paths[Lookup Match Output3]"
+              endId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 1]"
+              name="Lookup Match Output"
+              startId="Package\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT FatoVenda.Paths[Lookup Match Output4]"
+              endId="Package\DFT FatoVenda\Union All.Inputs[Union All Input 2]"
+              name="Lookup Match Output"
+              startId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT FatoVenda.Paths[Lookup No Match Output]"
+              endId="Package\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT FatoVenda.Paths[OLE DB Command Output]"
+              endId="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido.Inputs[Lookup Input]"
+              name="OLE DB Command Output"
+              startId="Package\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\DFT FatoVenda.Paths[OLE DB Source Output]"
               endId="Package\DFT FatoVenda\Lookup DimLoja.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT FatoVenda.Paths[Union All Output 1]"
+              endId="Package\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input]"
+              name="Union All Output 1"
+              startId="Package\DFT FatoVenda\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -5969,14 +7419,14 @@ where [refTable].[CodigoVendedor] = ?</property>
         <NodeLayout
           Size="165.333333333334,42.6666666666667"
           Id="Package\DFT DimVendedor"
-          TopLeft="44.5833326689899,99.2333315589031" />
+          TopLeft="43.8888882348935,99.2333315589031" />
         <NodeLayout
           Size="152,42.6666666666667"
           Id="Package\DFT FatoVenda"
           TopLeft="57.5396816822744,350.174596912993" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="126.041665955757,64.9523805538814">
+          TopLeft="125.694443738709,64.9523805538814">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5998,7 +7448,7 @@ where [refTable].[CodigoVendedor] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="127.958332628633,141.89999822557">
+          TopLeft="127.611110411584,141.89999822557">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6073,64 +7523,66 @@ where [refTable].[CodigoVendedor] = ?</property>
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\DFT DimLoja\OLE DB Source"
-          TopLeft="157.5,5.49999999999993" />
+          TopLeft="442.166666666667,5.49999999999993" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\DFT DimLoja\Insert Destination"
-          TopLeft="150.833333333333,826.833333333333" />
+          TopLeft="435.5,823.5" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\DFT DimLoja\Derived Column 1"
-          TopLeft="7.83333333333337,416.166666666666" />
+          TopLeft="578.5,412.833333333333" />
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\DFT DimLoja\Derived Column"
-          TopLeft="155.5,108.166666666666" />
+          TopLeft="440.166666666667,108.166666666666" />
         <NodeLayout
           Size="121.333333333334,42.6666666666667"
           Id="Package\DFT DimLoja\Union All"
-          TopLeft="172.166666666667,621.5" />
+          TopLeft="456.833333333333,618.166666666666" />
         <NodeLayout
           Size="209.333333333334,42.6666666666667"
           Id="Package\DFT DimLoja\Slowly Changing Dimension"
-          TopLeft="128.166666666667,313.499999999999" />
+          TopLeft="412.833333333333,310.166666666666" />
         <NodeLayout
           Size="166.666666666667,42.6666666666667"
           Id="Package\DFT DimLoja\OLE DB Command"
-          TopLeft="5.50000000000004,518.833333333333" />
+          TopLeft="578.166666666667,515.499999999999" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\DFT DimLoja\Derived Column 2"
-          TopLeft="150.833333333333,724.166666666666" />
+          TopLeft="435.5,720.833333333333" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DFT DimLoja\Data Conversion"
-          TopLeft="154.166666666667,210.833333333333" />
+          TopLeft="438.833333333333,210.833333333333" />
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Data Conversion Output]"
-          TopLeft="232.833333333333,253.5">
+          TopLeft="517.5,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,56.6666666666663"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,49.1666666666663">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,49.1666666666663" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Union All Output 1]"
-          TopLeft="232.833333333333,664.166666666666">
+          TopLeft="517.5,660.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6147,12 +7599,14 @@ where [refTable].[CodigoVendedor] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[OLE DB Source Output]"
-          TopLeft="232.833333333333,48.1666666666666">
+          TopLeft="517.5,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6169,18 +7623,20 @@ where [refTable].[CodigoVendedor] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[OLE DB Command Output]"
-          TopLeft="88.8333333333334,561.499999999999">
+          TopLeft="661.5,558.166666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.111111111111,60.0000000000001"
+              EndConnector="-125.111111111111,60.0000000000001"
               Start="0,0"
-              End="125.111111111111,52.5000000000001">
+              End="-125.111111111111,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -6189,32 +7645,34 @@ where [refTable].[CodigoVendedor] = ?</property>
                   <mssgle:CubicBezierSegment
                     Point1="0,31.531453362256"
                     Point2="0,35.531453362256"
-                    Point3="4,35.531453362256" />
+                    Point3="-4,35.531453362256" />
                   <mssgle:LineSegment
-                    End="121.111111111111,35.531453362256" />
+                    End="-121.111111111111,35.531453362256" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.111111111111,35.531453362256"
-                    Point2="125.111111111111,35.531453362256"
-                    Point3="125.111111111111,39.531453362256" />
+                    Point1="-121.111111111111,35.531453362256"
+                    Point2="-125.111111111111,35.531453362256"
+                    Point3="-125.111111111111,39.531453362256" />
                   <mssgle:LineSegment
-                    End="125.111111111111,52.5000000000001" />
+                    End="-125.111111111111,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[New Output]"
-          TopLeft="266.388888888889,356.166666666666">
+          TopLeft="483.944444444445,352.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.6666666666666,265.333333333333"
+              EndConnector="14.6666666666666,265.333333333333"
               Start="0,0"
-              End="-14.6666666666666,257.833333333333">
+              End="14.6666666666666,257.833333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -6223,64 +7681,64 @@ where [refTable].[CodigoVendedor] = ?</property>
                   <mssgle:CubicBezierSegment
                     Point1="0,127.770698319576"
                     Point2="0,131.770698319576"
-                    Point3="-4,131.770698319576" />
+                    Point3="4,131.770698319576" />
                   <mssgle:LineSegment
-                    End="-10.6666666666666,131.770698319576" />
+                    End="10.6666666666666,131.770698319576" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.6666666666666,131.770698319576"
-                    Point2="-14.6666666666666,131.770698319576"
-                    Point3="-14.6666666666666,135.770698319576" />
+                    Point1="10.6666666666666,131.770698319576"
+                    Point2="14.6666666666666,131.770698319576"
+                    Point3="14.6666666666666,135.770698319576" />
                   <mssgle:LineSegment
-                    End="-14.6666666666666,257.833333333333" />
+                    End="14.6666666666666,257.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-34.4247200520833,136.770698319576,54.1827734375,11.43359375"
+              BoundingBox="-19.7580533854167,136.770698319576,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Historical Attribute Inserts Output]"
-          TopLeft="199.277777777778,356.166666666666">
+          TopLeft="551.055555555556,352.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-109.444444444444,59.9999999999999"
+              EndConnector="109.444444444444,59.9999999999999"
               Start="0,0"
-              End="-109.444444444444,52.4999999999999">
+              End="109.444444444444,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2730720606827" />
+                    End="0,20.2730720606826" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2730720606827"
-                    Point2="0,24.2730720606827"
-                    Point3="-4,24.2730720606827" />
+                    Point1="0,20.2730720606826"
+                    Point2="0,24.2730720606826"
+                    Point3="4,24.2730720606826" />
                   <mssgle:LineSegment
-                    End="-105.444444444444,24.2730720606827" />
+                    End="105.444444444444,24.2730720606826" />
                   <mssgle:CubicBezierSegment
-                    Point1="-105.444444444444,24.2730720606827"
-                    Point2="-109.444444444444,24.2730720606827"
-                    Point3="-109.444444444444,28.2730720606827" />
+                    Point1="105.444444444444,24.2730720606826"
+                    Point2="109.444444444444,24.2730720606826"
+                    Point3="109.444444444444,28.2730720606826" />
                   <mssgle:LineSegment
-                    End="-109.444444444444,52.4999999999999" />
+                    End="109.444444444444,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-129.778608940972,29.2730720606827,150.1127734375,11.609375"
+              BoundingBox="-20.334164496528,29.2730720606826,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Derived Column Output2]"
-          TopLeft="232.833333333333,766.833333333333">
+          TopLeft="517.5,763.499999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6297,34 +7755,14 @@ where [refTable].[CodigoVendedor] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Derived Column Output1]"
-          TopLeft="89.3333333333334,458.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Derived Column Output]"
-          TopLeft="232.833333333333,150.833333333333">
+          TopLeft="517.5,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6341,7 +7779,33 @@ where [refTable].[CodigoVendedor] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimLoja.Paths[Derived Column Output]"
+          TopLeft="661,455.499999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6431,25 +7895,69 @@ where [refTable].[CodigoVendedor] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\DFT DimProduto\OLE DB Source"
-          TopLeft="157.5,5.49999999999993" />
-        <NodeLayout
-          Size="161.333333333334,42.6666666666667"
-          Id="Package\DFT DimProduto\Lookup Categoria"
-          TopLeft="152.166666666667,210.833333333333" />
-        <NodeLayout
           Size="209.333333333334,42.6666666666667"
           Id="Package\DFT DimProduto\Slowly Changing Dimension"
           TopLeft="128.166666666667,416.166666666666" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\DFT DimProduto\Lookup SubCategoria"
+          TopLeft="142.833333333333,108.166666666666" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DFT DimProduto\OLE DB Source"
+          TopLeft="157.5,5.49999999999993" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DFT DimProduto\Data Conversion"
           TopLeft="154.166666666667,313.499999999999" />
         <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\DFT DimProduto\Lookup SubCategoria"
-          TopLeft="142.833333333333,108.166666666666" />
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\DFT DimProduto\Lookup Categoria"
+          TopLeft="152.166666666667,210.833333333333" />
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Data Conversion Output]"
+          TopLeft="232.833333333333,356.166666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[OLE DB Source Output]"
+          TopLeft="232.833333333333,48.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Lookup Match Output1]"
           TopLeft="232.833333333333,253.5">
@@ -6498,87 +8006,43 @@ where [refTable].[CodigoVendedor] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Data Conversion Output]"
-          TopLeft="232.833333333333,356.166666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
-              Start="0,0"
-              End="0,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[OLE DB Source Output]"
-          TopLeft="232.833333333333,48.1666666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\DFT DimProduto\Derived Column"
           TopLeft="17.5,518.833333333333" />
         <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Historical Attribute Inserts Output]"
-          TopLeft="199.277777777778,458.833333333333">
+          TopLeft="182.5,458.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-104.444444444444,59.9999999999999"
+              EndConnector="-87.6666666666667,59.9999999999999"
               Start="0,0"
-              End="-104.444444444444,52.4999999999999">
+              End="-87.6666666666667,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2730720606826" />
+                    End="0,16.503144654088" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2730720606826"
-                    Point2="0,24.2730720606826"
-                    Point3="-4,24.2730720606826" />
+                    Point1="0,16.503144654088"
+                    Point2="0,20.503144654088"
+                    Point3="-4,20.503144654088" />
                   <mssgle:LineSegment
-                    End="-100.444444444444,24.2730720606826" />
+                    End="-83.6666666666667,20.503144654088" />
                   <mssgle:CubicBezierSegment
-                    Point1="-100.444444444444,24.2730720606826"
-                    Point2="-104.444444444444,24.2730720606826"
-                    Point3="-104.444444444444,28.2730720606826" />
+                    Point1="-83.6666666666667,20.503144654088"
+                    Point2="-87.6666666666667,20.503144654088"
+                    Point3="-87.6666666666667,24.503144654088" />
                   <mssgle:LineSegment
-                    End="-104.444444444444,52.4999999999999" />
+                    End="-87.6666666666667,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.278608940972,29.2730720606826,150.1127734375,11.609375"
+              BoundingBox="-118.889720052083,25.503144654088,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6614,37 +8078,37 @@ where [refTable].[CodigoVendedor] = ?</property>
           TopLeft="172.166666666667,724.166666666666" />
         <EdgeLayout
           Id="Package\DFT DimProduto.Paths[New Output]"
-          TopLeft="266.388888888889,458.833333333333">
+          TopLeft="232.833333333333,458.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.6666666666666,265.333333333333"
+              EndConnector="18.8888888888889,265.333333333333"
               Start="0,0"
-              End="-14.6666666666666,257.833333333333">
+              End="18.8888888888889,257.833333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,127.770698319576" />
+                    End="0,153.127982646421" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,127.770698319576"
-                    Point2="0,131.770698319576"
-                    Point3="-4,131.770698319576" />
+                    Point1="0,153.127982646421"
+                    Point2="0,157.127982646421"
+                    Point3="4,157.127982646421" />
                   <mssgle:LineSegment
-                    End="-10.6666666666666,131.770698319576" />
+                    End="14.8888888888889,157.127982646421" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.6666666666666,131.770698319576"
-                    Point2="-14.6666666666666,131.770698319576"
-                    Point3="-14.6666666666666,135.770698319576" />
+                    Point1="14.8888888888889,157.127982646421"
+                    Point2="18.8888888888889,157.127982646421"
+                    Point3="18.8888888888889,161.127982646421" />
                   <mssgle:LineSegment
-                    End="-14.6666666666666,257.833333333333" />
+                    End="18.8888888888889,257.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-34.4247200520833,136.770698319576,54.1827734375,11.43359375"
+              BoundingBox="-17.6469422743055,162.127982646421,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6734,45 +8198,49 @@ where [refTable].[CodigoVendedor] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\DFT DimProduto\OLE DB Command 1"
+          TopLeft="293.833333333333,518.833333333333" />
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Inferred Member Updates Output]"
+          TopLeft="283.166666666667,458.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.6666666666667,59.9999999999999"
+              Start="0,0"
+              End="98.6666666666667,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503144654088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503144654088"
+                    Point2="0,20.503144654088"
+                    Point3="4,20.503144654088" />
+                  <mssgle:LineSegment
+                    End="94.6666666666667,20.503144654088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.6666666666667,20.503144654088"
+                    Point2="98.6666666666667,20.503144654088"
+                    Point3="98.6666666666667,24.503144654088" />
+                  <mssgle:LineSegment
+                    End="98.6666666666667,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.0696549479167,25.503144654088,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT DimProduto\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT DimProduto\Lookup Categoria">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Categoria]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT DimProduto\Slowly Changing Dimension">
     <Properties>
@@ -6839,18 +8307,19 @@ where [refTable].[CodigoVendedor] = ?</property>
     &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
     &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
     &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
   &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
   &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
   &lt;CurrentIndicatorColumn&gt;StatusProduto&lt;/CurrentIndicatorColumn&gt;
-  &lt;InferredIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn&gt;MembroInferido&lt;/InferredIndicatorColumn&gt;
   &lt;ValueCurrent&gt;Current&lt;/ValueCurrent&gt;
   &lt;ValueExpired&gt;Expired&lt;/ValueExpired&gt;
   &lt;StartDateColumn /&gt;
   &lt;EndDateColumn /&gt;
   &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
@@ -6878,6 +8347,42 @@ where [refTable].[CodigoVendedor] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DimProduto\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DimProduto\Lookup Categoria">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Categoria]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT DimVendedor">
     <LayoutInfo>
@@ -6888,103 +8393,33 @@ where [refTable].[CodigoVendedor] = ?</property>
           Id="Package\DFT DimVendedor\Lookup DimLoja"
           TopLeft="154.833333333333,108.166666666666" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\DFT DimVendedor\OLE DB Source"
-          TopLeft="157.5,5.49999999999993" />
+          Size="164,42.6666666666667"
+          Id="Package\DFT DimVendedor\Derived Column 1"
+          TopLeft="150.833333333333,621.5" />
         <NodeLayout
-          Size="209.333333333334,42.6666666666667"
-          Id="Package\DFT DimVendedor\Slowly Changing Dimension"
-          TopLeft="128.166666666667,210.833333333333" />
-        <EdgeLayout
-          Id="Package\DFT DimVendedor.Paths[OLE DB Source Output]"
-          TopLeft="232.833333333333,48.1666666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimVendedor.Paths[Lookup Match Output]"
-          TopLeft="232.833333333333,150.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
-              Start="0,0"
-              End="0,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453124999999,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\DFT DimVendedor\Derived Column"
-          TopLeft="17.5,313.5" />
-        <EdgeLayout
-          Id="Package\DFT DimVendedor.Paths[Historical Attribute Inserts Output]"
-          TopLeft="199.277777777778,253.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-104.444444444444,60"
-              Start="0,0"
-              End="-104.444444444444,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2730720606827" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2730720606827"
-                    Point2="0,24.2730720606827"
-                    Point3="-4,24.2730720606827" />
-                  <mssgle:LineSegment
-                    End="-100.444444444444,24.2730720606827" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-100.444444444444,24.2730720606827"
-                    Point2="-104.444444444444,24.2730720606827"
-                    Point3="-104.444444444444,28.2730720606827" />
-                  <mssgle:LineSegment
-                    End="-104.444444444444,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-127.278608940972,29.2730720606827,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\DFT DimVendedor\Union All"
+          TopLeft="172.166666666667,518.833333333333" />
         <NodeLayout
           Size="166.666666666667,42.6666666666667"
           Id="Package\DFT DimVendedor\OLE DB Command"
           TopLeft="5.50000000000001,416.166666666666" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DFT DimVendedor\OLE DB Source"
+          TopLeft="157.5,5.49999999999993" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\DFT DimVendedor\Insert Destination"
+          TopLeft="150.833333333333,724.166666666667" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\DFT DimVendedor\Derived Column"
+          TopLeft="17.5,313.5" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\DFT DimVendedor\Slowly Changing Dimension"
+          TopLeft="128.166666666667,210.833333333333" />
         <EdgeLayout
           Id="Package\DFT DimVendedor.Paths[Derived Column Output]"
           TopLeft="91.8333333333333,356.166666666666">
@@ -7004,13 +8439,95 @@ where [refTable].[CodigoVendedor] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="121.333333333334,42.6666666666667"
-          Id="Package\DFT DimVendedor\Union All"
-          TopLeft="172.166666666667,518.833333333333" />
+        <EdgeLayout
+          Id="Package\DFT DimVendedor.Paths[Union All Output 1]"
+          TopLeft="232.833333333333,561.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimVendedor.Paths[OLE DB Source Output]"
+          TopLeft="232.833333333333,48.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimVendedor.Paths[OLE DB Command Output]"
+          TopLeft="88.8333333333333,458.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.111111111111,60"
+              Start="0,0"
+              End="125.111111111111,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.531453362256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.531453362256"
+                    Point2="0,35.531453362256"
+                    Point3="4,35.531453362256" />
+                  <mssgle:LineSegment
+                    End="121.111111111111,35.531453362256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.111111111111,35.531453362256"
+                    Point2="125.111111111111,35.531453362256"
+                    Point3="125.111111111111,39.531453362256" />
+                  <mssgle:LineSegment
+                    End="125.111111111111,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimVendedor.Paths[New Output]"
           TopLeft="266.388888888889,253.5">
@@ -7048,69 +8565,65 @@ where [refTable].[CodigoVendedor] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimVendedor.Paths[OLE DB Command Output]"
-          TopLeft="88.8333333333333,458.833333333333">
+          Id="Package\DFT DimVendedor.Paths[Lookup Match Output]"
+          TopLeft="232.833333333333,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.111111111111,60"
+              EndConnector="0,59.9999999999998"
               Start="0,0"
-              End="125.111111111111,52.5">
+              End="0,52.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.531453362256" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.531453362256"
-                    Point2="0,35.531453362256"
-                    Point3="4,35.531453362256" />
-                  <mssgle:LineSegment
-                    End="121.111111111111,35.531453362256" />
-                  <mssgle:CubicBezierSegment
-                    Point1="121.111111111111,35.531453362256"
-                    Point2="125.111111111111,35.531453362256"
-                    Point3="125.111111111111,39.531453362256" />
-                  <mssgle:LineSegment
-                    End="125.111111111111,52.5" />
+                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453124999999,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\DFT DimVendedor\Derived Column 1"
-          TopLeft="150.833333333333,621.5" />
         <EdgeLayout
-          Id="Package\DFT DimVendedor.Paths[Union All Output 1]"
-          TopLeft="232.833333333333,561.5">
+          Id="Package\DFT DimVendedor.Paths[Historical Attribute Inserts Output]"
+          TopLeft="199.277777777778,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="-104.444444444444,60"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="-104.444444444444,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,20.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2730720606827"
+                    Point2="0,24.2730720606827"
+                    Point3="-4,24.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-100.444444444444,24.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.444444444444,24.2730720606827"
+                    Point2="-104.444444444444,24.2730720606827"
+                    Point3="-104.444444444444,28.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-104.444444444444,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-127.278608940972,29.2730720606827,150.1127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\DFT DimVendedor\Insert Destination"
-          TopLeft="150.833333333333,724.166666666667" />
         <EdgeLayout
           Id="Package\DFT DimVendedor.Paths[Derived Column Output1]"
           TopLeft="232.833333333333,664.166666666666">
@@ -7130,7 +8643,9 @@ where [refTable].[CodigoVendedor] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7234,69 +8749,35 @@ where [refTable].[CodigoVendedor] = ?</property>
     design-time-name="Package\DFT FatoVenda">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\DFT FatoVenda\Lookup DimVendedor"
+          TopLeft="158,182.777777777778" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DFT FatoVenda\Lookup DimProduto"
+          TopLeft="168.888888888889,268.148148148148" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\DFT FatoVenda\Data Conversion"
+          TopLeft="170.37037037037,508.444444444444" />
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\DFT FatoVenda\Lookup DimTempo"
+          TopLeft="170.37037037037,590.814814814815" />
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\DFT FatoVenda\OLE DB Source"
           TopLeft="169.444443475869,19.4999996513128" />
         <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\DFT FatoVenda\ADO NET Destination"
+          TopLeft="170.37037037037,671.407407407407" />
+        <NodeLayout
           Size="156,42.6666666666667"
           Id="Package\DFT FatoVenda\Lookup DimLoja"
           TopLeft="170,98.8888888888889" />
-        <EdgeLayout
-          Id="Package\DFT FatoVenda.Paths[OLE DB Source Output]"
-          TopLeft="246.388888404601,62.1666663179795">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.7222225709094"
-              Start="0,0"
-              End="0,29.2222225709094">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.2222225709094" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\DFT FatoVenda\Lookup DimVendedor"
-          TopLeft="158,182.777777777778" />
-        <EdgeLayout
-          Id="Package\DFT FatoVenda.Paths[Lookup Match Output]"
-          TopLeft="248,141.555555555556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.2222222222222"
-              Start="0,0"
-              End="0,33.7222222222222">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.7222222222222" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.0564236111111,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\DFT FatoVenda\Lookup DimProduto"
-          TopLeft="168.888888888889,268.148148148148" />
         <EdgeLayout
           Id="Package\DFT FatoVenda.Paths[Lookup Match Output1]"
           TopLeft="251.444444444445,225.444444444444">
@@ -7321,41 +8802,33 @@ where [refTable].[CodigoVendedor] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168,42.6666666666667"
-          Id="Package\DFT FatoVenda\Lookup DimTempo"
-          TopLeft="170.37037037037,426.814814814815" />
-        <NodeLayout
-          Size="157.333333333334,42.6666666666667"
-          Id="Package\DFT FatoVenda\Data Conversion"
-          TopLeft="170.37037037037,344.444444444444" />
         <EdgeLayout
-          Id="Package\DFT FatoVenda.Paths[Lookup Match Output2]"
-          TopLeft="251.962962962963,310.814814814815">
+          Id="Package\DFT FatoVenda.Paths[Lookup Match Output]"
+          TopLeft="248,141.555555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.6296296296296"
+              EndConnector="0,41.2222222222222"
               Start="0,0"
-              End="0,26.1296296296296">
+              End="0,33.7222222222222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.1296296296296" />
+                    End="0,33.7222222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.26012731481478,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,11.0564236111111,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT FatoVenda.Paths[Data Conversion Output]"
-          TopLeft="251.703703703704,387.111111111111">
+          TopLeft="251.703703703704,551.111111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7375,13 +8848,31 @@ where [refTable].[CodigoVendedor] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\DFT FatoVenda\ADO NET Destination"
-          TopLeft="170.37037037037,507.407407407407" />
         <EdgeLayout
-          Id="Package\DFT FatoVenda.Paths[Lookup Match Output3]"
-          TopLeft="257.37037037037,469.481481481481">
+          Id="Package\DFT FatoVenda.Paths[OLE DB Source Output]"
+          TopLeft="246.388888404601,62.1666663179795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.7222225709094"
+              Start="0,0"
+              End="0,29.2222225709094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2222225709094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT FatoVenda.Paths[Lookup Match Output2]"
+          TopLeft="257.37037037037,633.481481481481">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7399,7 +8890,161 @@ where [refTable].[CodigoVendedor] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.40827546296302,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,9.40827546296299,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\DFT FatoVenda\Derived Column"
+          TopLeft="478.666666666667,265.333333333333" />
+        <EdgeLayout
+          Id="Package\DFT FatoVenda.Paths[Lookup No Match Output]"
+          TopLeft="340.888888888889,288.074074074074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.777777777778,0"
+              Start="0,0"
+              End="130.277777777778,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="130.277777777778,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.33250217013883,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\DFT FatoVenda\OLE DB Command"
+          TopLeft="478.666666666667,343.333333333333" />
+        <EdgeLayout
+          Id="Package\DFT FatoVenda.Paths[Derived Column Output]"
+          TopLeft="559,308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.3333333333333"
+              Start="0,0"
+              End="0,27.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="261.333333333334,42.6666666666667"
+          Id="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido"
+          TopLeft="435.333333333333,423.407407407407" />
+        <EdgeLayout
+          Id="Package\DFT FatoVenda.Paths[OLE DB Command Output]"
+          TopLeft="564,386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.407407407407"
+              Start="0,0"
+              End="0,29.907407407407">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.907407407407" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\DFT FatoVenda\Union All"
+          TopLeft="189.333333333333,425.333333333333" />
+        <EdgeLayout
+          Id="Package\DFT FatoVenda.Paths[Lookup Match Output3]"
+          TopLeft="252.444444444445,310.814814814815">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114.518518518519"
+              Start="0,0"
+              End="0,107.018518518519">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.018518518519" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,47.7045717592593,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT FatoVenda.Paths[Union All Output 1]"
+          TopLeft="249.518518518518,468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.4444444444441"
+              Start="0,0"
+              End="0,32.9444444444441">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.9444444444441" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT FatoVenda.Paths[Lookup Match Output4]"
+          TopLeft="435.333333333333,445.703703703703">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-124.666666666667,0"
+              Start="0,0"
+              End="-117.166666666667,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-117.166666666667,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-106.774720052083,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7435,7 +9080,7 @@ where [refTable].[CodigoVendedor] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7484,6 +9129,14 @@ where [refTable].[CodigoVendedor] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\DFT FatoVenda\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DFT FatoVenda\Lookup DimLoja">
     <Properties>
       <Property>
@@ -7507,10 +9160,12 @@ where [refTable].[CodigoVendedor] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT FatoVenda\ADO NET Destination">
+    design-time-name="Package\DFT FatoVenda\Lookup DimProduto - Membro Inferido">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">true</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

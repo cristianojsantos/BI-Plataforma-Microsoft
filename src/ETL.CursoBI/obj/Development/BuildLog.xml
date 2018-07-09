@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ETL.CursoBI</Name>
-    <LastWriteTime>2018-06-19T18:31:22.259946Z</LastWriteTime>
+    <LastWriteTime>2018-06-29T15:51:58.8199275Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-    <Salt>ecOdzvXb</Salt>
-    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8e8dIt1950yNzNF5cSbsfgAAAAACAAAAAAADZgAAwAAAABAAAAA1Qfk6vNWpiqebpR6AfDaEAAAAAASAAACgAAAAEAAAAI4CHrnBn3bwRtdC1ebb0a8oAAAALN+WV+fUzH2uSw5udMG3DnRHK84+3tnrJjo6kAe/jyBpaBEI45c88RQAAADfQJn1otzOIumkBYuzEsO81tMcPA==</LastKnownProtectedHashedPassword>
+    <Salt>hXpkWdT6</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8e8dIt1950yNzNF5cSbsfgAAAAACAAAAAAADZgAAwAAAABAAAAAh6kI8CxPkxrZCGjBGvb7DAAAAAASAAACgAAAAEAAAAHWvj69nurjLMpgkyfGsGRMoAAAAHjiJv2YQOs8E8aPv3jYX9xVlhTP0zyK5vaGS8paS2ND5WWST9MJjwxQAAAAt9VoLv5LNAEB7c7TTj1IDQgYdFA==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>CargaGeral.dtsx</Name>
-      <LastWriteTime>2018-06-19T20:38:51.8687017Z</LastWriteTime>
+      <LastWriteTime>2018-07-05T21:19:54.4533834Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>vw3PhhQw</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8e8dIt1950yNzNF5cSbsfgAAAAACAAAAAAADZgAAwAAAABAAAACrQ+Jf0zj9UKqfpw5qPEryAAAAAASAAACgAAAAEAAAAMPNqtOnCqa3LZv6OY7e/68oAAAAIwj7xMGcV3qpdp5AaFUgZlg/hAXH1vUS4xU4EoGmDsCo/BBxBxqbLRQAAADpRb3nPsGt9SFAW5J+Sgz9qXWrTw==</LastKnownProtectedHashedPassword>
+      <Salt>2z1kURqA</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8e8dIt1950yNzNF5cSbsfgAAAAACAAAAAAADZgAAwAAAABAAAABdQBWEkYTLptjyKwV2PXFpAAAAAASAAACgAAAAEAAAAHlbfbghBwlxUZi1QyFDGZUoAAAAew8/Wm0hJCa4Q6CDNGS/iooHfYq+UjPONr9IbYJNz4yfF1tPMW0NCRQAAAD4IiIFzR9qhRhaqxcj3zMvo/ht2w==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>

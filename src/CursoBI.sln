@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ETL", "ETL", "{505E1EEB-F095-4539-97B3-E875D11C1C91}"
 EndProject
@@ -9,16 +9,19 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETL.CursoBI", "ETL.CursoBI\
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Development|Default = Development|Default
+		Development|x86 = Development|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{37776732-99BA-481F-A590-6D418677AAE2}.Development|Default.ActiveCfg = Development
-		{37776732-99BA-481F-A590-6D418677AAE2}.Development|Default.Build.0 = Development
+		{37776732-99BA-481F-A590-6D418677AAE2}.Development|x86.ActiveCfg = Development
+		{37776732-99BA-481F-A590-6D418677AAE2}.Development|x86.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{37776732-99BA-481F-A590-6D418677AAE2} = {505E1EEB-F095-4539-97B3-E875D11C1C91}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9EE52018-ACC3-4631-8245-0A08EC518FBD}
 	EndGlobalSection
 EndGlobal
