@@ -1,0 +1,2368 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/10/2018 6:40:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CRISJS"
+  DTS:CreatorName="CRISJS\crisj"
+  DTS:DTSID="{19B10FDD-241C-4DFF-B322-30E2A39586E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CargaFatoVenda"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{CAB12F4B-15F5-4175-8135-7D6E42FD6D42}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9DE4479B-BBA6-4E95-BF27-7AC71D690E71}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Contagem">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{162E686B-F226-4F18-937D-5ADD052065B9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataAtual">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4739D01A-A553-4548-B4B5-C07AF39C8C94}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataFim">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B39BBC3B-C811-43F9-9A39-6B85813BCB16}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataInicio">
+      <DTS:VariableValue
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{66D4270C-983A-4B04-9A28-B892C492299C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NomeConfiguracao">
+      <DTS:VariableValue
+        DTS:DataType="8">FatoVenda</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CF34386C-D81D-47B4-8E20-C0E45C48ED52}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ResultSet">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{82AE33F9-4386-49F1-BBD0-2377453DA998}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8F2C329F-6997-44CD-95DC-F4878AB86774}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT C.DataInicio,&#xA;&#x9;   C.DataFim&#xA;  FROM dbo.ConfiguraExtracao C WITH(NOLOCK)&#xA; WHERE C.NomeExtracao = 'FatoVenda'"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::ResultSet" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{971B957B-D15B-47AC-B1AC-829A0F07ECD7}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{404D4661-E7CE-4BCC-98EF-F345B0F92766}"
+        DTS:ObjectName="{404D4661-E7CE-4BCC-98EF-F345B0F92766}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::ResultSet" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\For Loop Container"
+          DTS:AssignExpression="@DataAtual = DATEADD(&quot;DAY&quot;, 1, @DataAtual)"
+          DTS:CreationName="STOCK:FORLOOP"
+          DTS:Description="For Loop Container"
+          DTS:DTSID="{21CF888F-C510-4894-A296-5BD53555BE6B}"
+          DTS:EvalExpression="@DataAtual &lt;= @DataFim"
+          DTS:ExecutableType="STOCK:FORLOOP"
+          DTS:InitExpression="@DataAtual = @DataInicio"
+          DTS:LocaleID="-1"
+          DTS:MaxConcurrent="1"
+          DTS:ObjectName="For Loop Container">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{ea1ca88a-218c-4363-950c-2fe1ca54cff3}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT FatoVenda"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination"
+                      componentClassID="Microsoft.ManagedComponentHost"
+                      contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                      name="ADO NET Destination"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The Destination database table name."
+                          expressionType="Notify"
+                          name="TableOrViewName"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."FatoVenda"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                          expressionType="Notify"
+                          name="BatchSize">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                          expressionType="Notify"
+                          name="CommandTimeout">30</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                          expressionType="Notify"
+                          name="UseBulkInsertWhenPossible">true</property>
+                        <property
+                          dataType="System.String"
+                          name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Connections[IDbConnection]"
+                          connectionManagerID="{EB98FF8D-F973-474A-986E-E96397ACB596}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[ADONET]"
+                          description="Managed connection manager"
+                          name="IDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="ADO NET Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[quantidade]"
+                              cachedDataType="i4"
+                              cachedName="quantidade"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Quantidade]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantidade]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKLoja]"
+                              cachedDataType="i4"
+                              cachedName="SKLoja"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKLoja]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output].Columns[SKLoja]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKVendedor]"
+                              cachedDataType="i4"
+                              cachedName="SKVendedor"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKVendedor]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output].Columns[SKVendedor]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKProduto]"
+                              cachedDataType="i4"
+                              cachedName="SKProduto"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKProduto]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output].Columns[SKProduto]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SKTempo]"
+                              cachedDataType="i4"
+                              cachedName="SKTempo"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKTempo]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output].Columns[SKTempo]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[cod_venda]"
+                              cachedDataType="i4"
+                              cachedName="cod_venda"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CodigoVenda]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_venda]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[valor_unitario]"
+                              cachedDataType="r8"
+                              cachedName="valor_unitario"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ValorVenda]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CodigoVenda]"
+                              dataType="i4"
+                              name="CodigoVenda" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKTempo]"
+                              dataType="i4"
+                              name="SKTempo" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKLoja]"
+                              dataType="i4"
+                              name="SKLoja" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKVendedor]"
+                              dataType="i4"
+                              name="SKVendedor" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SKProduto]"
+                              dataType="i4"
+                              name="SKProduto" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ValorVenda]"
+                              dataType="numeric"
+                              name="ValorVenda"
+                              precision="10"
+                              scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Quantidade]"
+                              dataType="i4"
+                              name="Quantidade" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="ADO NET Destination Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split"
+                      componentClassID="Microsoft.ConditionalSplit"
+                      contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                      name="Conditional Split"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Inputs[Conditional Split Input]"
+                          description="Input to the Conditional Split Transformation"
+                          name="Conditional Split Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Inputs[Conditional Split Input].Columns[Contagem]"
+                              cachedDataType="i4"
+                              cachedName="Contagem"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[Contagem]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Insert]"
+                          description="Output 1 of the Conditional Split Transformation"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="Insert"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Inputs[Conditional Split Input]"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                              name="Expression">#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[Contagem]} == 0</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the friendly version of the expression. This expression version uses column names."
+                              expressionType="Notify"
+                              name="FriendlyExpression">Contagem == 0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                              name="EvaluationOrder">0</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Update]"
+                          description="Output 2 of the Conditional Split Transformation"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="Update"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Inputs[Conditional Split Input]"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                              name="Expression">#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[Contagem]} &gt; 0</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the friendly version of the expression. This expression version uses column names."
+                              expressionType="Notify"
+                              name="FriendlyExpression">Contagem &gt; 0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                              name="EvaluationOrder">1</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Conditional Split Default Output]"
+                          description="Default Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          name="Conditional Split Default Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Inputs[Conditional Split Input]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              name="IsDefaultOut">true</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Conditional Split Error Output]"
+                          description="Error Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Conditional Split Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Inputs[Conditional Split Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="Data Conversion"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input].Columns[data_venda]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="data_venda"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Output].Columns[dc_data_venda]"
+                              dataType="dbDate"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Output].Columns[dc_data_venda]"
+                              name="dc_data_venda"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="Derived Column"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[Contagem]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[Contagem]"
+                              name="Contagem"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::Contagem]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::Contagem]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup DimLoja"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM dbo.DimLoja
+WHERE StatusLoja = 'Current'</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT *
+  FROM dbo.DimLoja
+WHERE StatusLoja = 'Current') [refTable]
+where [refTable].[CodigoLoja] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKLoja" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CodigoLoja" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NomeLoja" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="EnderecoLoja" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusLoja" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Connections[OleDbConnection]"
+                          connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Inputs[Lookup Input].Columns[cod_loja]"
+                              cachedDataType="i4"
+                              cachedName="cod_loja"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CodigoLoja</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          errorRowDisposition="IgnoreFailure"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output].Columns[SKLoja]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output].Columns[SKLoja]"
+                              name="SKLoja"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SKLoja</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup DimProduto"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM dbo.DimProduto
+WHERE StatusProduto = 'Current'</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT *
+  FROM dbo.DimProduto
+WHERE StatusProduto = 'Current') [refTable]
+where [refTable].[CodigoProduto] = ? and [refTable].[CodigoCategoria] = ? and [refTable].[CodigoSubCategoria] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKProduto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CodigoProduto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DescricaoProduto" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ValorProduto" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="CodigoCategoria" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DescdricaoCategoria" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CodigoSubCategoria" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DescricaoSubCategoria" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusProduto" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]};#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]};#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Connections[OleDbConnection]"
+                          connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input].Columns[cod_produto]"
+                              cachedDataType="i4"
+                              cachedName="cod_produto"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CodigoProduto</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input].Columns[cod_categoria]"
+                              cachedDataType="i4"
+                              cachedName="cod_categoria"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CodigoCategoria</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input].Columns[cod_subcategoria]"
+                              cachedDataType="i4"
+                              cachedName="cod_subcategoria"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CodigoSubCategoria</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output].Columns[SKProduto]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output].Columns[SKProduto]"
+                              name="SKProduto"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SKProduto</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup DimTempo"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimTempo]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimTempo]) [refTable]
+where [refTable].[Data] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKTempo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Data" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dia" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mes" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Ano" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Output].Columns[dc_data_venda]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Connections[OleDbConnection]"
+                          connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Inputs[Lookup Input].Columns[dc_data_venda]"
+                              cachedDataType="dbDate"
+                              cachedName="dc_data_venda"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Output].Columns[dc_data_venda]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">Data</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output].Columns[SKTempo]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output].Columns[SKTempo]"
+                              name="SKTempo"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SKTempo</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup DimVendedor"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM dbo.DimVendedor
+WHERE StatusVendedor = 'Current'</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT *
+  FROM dbo.DimVendedor
+WHERE StatusVendedor = 'Current') [refTable]
+where [refTable].[CodigoVendedor] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKVendedor" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CodigoVendedor" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NomeVendedor" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CodigoLoja" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NomeLoja" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusVendedor" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_vendedor]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Connections[OleDbConnection]"
+                          connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Inputs[Lookup Input].Columns[cod_vendedor]"
+                              cachedDataType="i4"
+                              cachedName="cod_vendedor"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_vendedor]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CodigoVendedor</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output].Columns[SKVendedor]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output].Columns[SKVendedor]"
+                              name="SKVendedor"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">SKVendedor</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command"
+                      componentClassID="Microsoft.OLEDBCommand"
+                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                      name="OLE DB Command"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ? = COUNT(*)
+  FROM dbo.FatoVenda F WITH(NOLOCK)
+ WHERE F.CodigoVenda = ?
+   AND F.SKTempo = ?
+   AND F.SKLoja = ?
+   AND F.SKVendedor = ?
+   AND F.SKProduto = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Connections[OleDbConnection]"
+                          connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]"
+                          errorOrTruncationOperation="Command Execution"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Command Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[Contagem]"
+                              cachedDataType="i4"
+                              cachedName="Contagem"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output].Columns[Contagem]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[cod_venda]"
+                              cachedDataType="i4"
+                              cachedName="cod_venda"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_venda]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[SKTempo]"
+                              cachedDataType="i4"
+                              cachedName="SKTempo"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output].Columns[SKTempo]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[SKLoja]"
+                              cachedDataType="i4"
+                              cachedName="SKLoja"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output].Columns[SKLoja]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[SKVendedor]"
+                              cachedDataType="i4"
+                              cachedName="SKVendedor"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output].Columns[SKVendedor]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].Columns[SKProduto]"
+                              cachedDataType="i4"
+                              cachedName="SKProduto"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output].Columns[SKProduto]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              dataType="i4"
+                              name="Param_0">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              dataType="i4"
+                              name="Param_1">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              dataType="i4"
+                              name="Param_2">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              dataType="i4"
+                              name="Param_3">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              dataType="i4"
+                              name="Param_4">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              dataType="i4"
+                              name="Param_5">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Output]"
+                          exclusionGroup="1"
+                          name="OLE DB Command Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Command Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1"
+                      componentClassID="Microsoft.OLEDBCommand"
+                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                      name="OLE DB Command 1"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.FatoVenda
+   SET ValorVenda = ?,
+       Quantidade = ?
+ WHERE CodigoVenda = ?
+   AND SKTempo = ?
+   AND SKLoja = ?
+   AND SKVendedor = ?
+   AND SKProduto = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Connections[OleDbConnection]"
+                          connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[Destino]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                          errorOrTruncationOperation="Command Execution"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Command Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[valor_unitario]"
+                              cachedDataType="r8"
+                              cachedName="valor_unitario"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[quantidade]"
+                              cachedDataType="i4"
+                              cachedName="quantidade"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantidade]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cod_venda]"
+                              cachedDataType="i4"
+                              cachedName="cod_venda"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_venda]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[SKTempo]"
+                              cachedDataType="i4"
+                              cachedName="SKTempo"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output].Columns[SKTempo]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[SKLoja]"
+                              cachedDataType="i4"
+                              cachedName="SKLoja"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output].Columns[SKLoja]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[SKVendedor]"
+                              cachedDataType="i4"
+                              cachedName="SKVendedor"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output].Columns[SKVendedor]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[SKProduto]"
+                              cachedDataType="i4"
+                              cachedName="SKProduto"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output].Columns[SKProduto]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              dataType="numeric"
+                              name="Param_0"
+                              precision="10"
+                              scale="2">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              dataType="i4"
+                              name="Param_1">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              dataType="i4"
+                              name="Param_2">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              dataType="i4"
+                              name="Param_3">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              dataType="i4"
+                              name="Param_4">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              dataType="i4"
+                              name="Param_5">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                              dataType="i4"
+                              name="Param_6">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                          exclusionGroup="1"
+                          name="OLE DB Command Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Command Error Output"
+                          synchronousInputId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="OLE DB Source"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT V.cod_venda,
+	   V.cod_vendedor,
+	   VE.cod_loja,
+	   V.data_venda,
+	   IV.cod_produto,
+	   P.cod_categoria,
+	   P.cod_subcategoria,
+	   IV.quantidade,
+	   IV.valor_unitario
+  FROM dbo.Venda V
+ INNER JOIN dbo.Item_Venda IV
+    ON IV.cod_venda = V.cod_venda
+ INNER JOIN dbo.Produto P
+    ON P.cod_produto = IV.cod_produto
+ INNER JOIN dbo.Vendedor VE
+    ON VE.cod_vendedor = V.cod_vendedor
+ WHERE CONVERT(DATE, V.data_venda) &gt;= CONVERT(DATE, ?)
+   AND CONVERT(DATE, V.data_venda) &lt;= CONVERT(DATE, ?)</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping">"Parameter0:Input",{162E686B-F226-4F18-937D-5ADD052065B9};"Parameter1:Input",{162E686B-F226-4F18-937D-5ADD052065B9};</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Connections[OleDbConnection]"
+                          connectionManagerID="{B8A115DE-295B-4FDC-A0EF-90CA5CE1D5F8}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[Origem]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_venda]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_venda]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_venda]"
+                              name="cod_venda"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_vendedor]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_vendedor]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_vendedor]"
+                              name="cod_vendedor"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_loja]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]"
+                              name="cod_loja"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_venda]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]"
+                              name="data_venda"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_produto]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]"
+                              name="cod_produto"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_categoria]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]"
+                              name="cod_categoria"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_subcategoria]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]"
+                              name="cod_subcategoria"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantidade]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[quantidade]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantidade]"
+                              name="quantidade"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valor_unitario]"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_unitario]"
+                              name="valor_unitario"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_venda]"
+                              dataType="i4"
+                              name="cod_venda" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_vendedor]"
+                              dataType="i4"
+                              name="cod_vendedor" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_loja]"
+                              dataType="i4"
+                              name="cod_loja" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_venda]"
+                              dataType="dbTimeStamp"
+                              name="data_venda" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_produto]"
+                              dataType="i4"
+                              name="cod_produto" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_categoria]"
+                              dataType="i4"
+                              name="cod_categoria" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_subcategoria]"
+                              dataType="i4"
+                              name="cod_subcategoria" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[quantidade]"
+                              dataType="i4"
+                              name="quantidade" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valor_unitario]"
+                              dataType="r8"
+                              name="valor_unitario" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_venda]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_venda]"
+                              name="cod_venda" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_vendedor]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_vendedor]"
+                              name="cod_vendedor" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_loja]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_loja]"
+                              name="cod_loja" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_venda]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_venda]"
+                              name="data_venda" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_produto]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_produto]"
+                              name="cod_produto" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_categoria]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_categoria]"
+                              name="cod_categoria" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_subcategoria]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_subcategoria]"
+                              name="cod_subcategoria" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantidade]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantidade]"
+                              name="quantidade" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valor_unitario]"
+                              dataType="r8"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valor_unitario]"
+                              name="valor_unitario" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Data Conversion Output]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Inputs[Lookup Input]"
+                      name="Data Conversion Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Outputs[Data Conversion Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Derived Column Output]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Inputs[OLE DB Command Input]"
+                      name="Derived Column Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Insert]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                      name="Insert"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Insert]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Inputs[Lookup Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output1]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Inputs[Lookup Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output2]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output3]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column.Inputs[Derived Column Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[OLE DB Command Output]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Inputs[Conditional Split Input]"
+                      name="OLE DB Command Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command.Outputs[OLE DB Command Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[OLE DB Source Output]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja.Inputs[Lookup Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Update]"
+                      endId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                      name="Update"
+                      startId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split.Outputs[Update]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E0F6BACC-3396-49B8-8BA5-ECD6E03A2D00}"
+          DTS:ObjectName="{E0F6BACC-3396-49B8-8BA5-ECD6E03A2D00}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::DataInicio" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{96647CDB-4492-4F6D-A5F9-1B3C46885BC4}"
+          DTS:ObjectName="{96647CDB-4492-4F6D-A5F9-1B3C46885BC4}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::DataFim" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4AF65DDC-AC44-40F8-B129-FF804946C269}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Execute SQL Task"
+          TopLeft="97.9166652075946,56.7666656515996" />
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda"
+          TopLeft="28.6666661202907,23.7666638694207" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="209.333333333334,113.333333333334"
+          Size="209.333333333334,156"
+          Id="Package\Foreach Loop Container\For Loop Container"
+          TopLeft="25.2499989879628,14.1999978148938" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="283.333333333334,340"
+          Size="283.333333333334,382.666666666667"
+          Id="Package\Foreach Loop Container"
+          TopLeft="42.4999993667006,130.433331001004" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="182.041665620481,99.4333323182663">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.9999986827374"
+              Start="0,0"
+              End="0,23.4999986827374">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4999986827374" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor"
+          TopLeft="255.222220773498,182.777777777778" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto"
+          TopLeft="266.111109662387,268.148148148148" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion"
+          TopLeft="267.592591143868,360.444444444444" />
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo"
+          TopLeft="267.592591143868,442.814814814815" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source"
+          TopLeft="266.666664249367,19.4999996513128" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja"
+          TopLeft="267.222220773498,98.8888888888889" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination"
+          TopLeft="104.027776227643,807.988887176448" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output]"
+          TopLeft="345.222220773498,141.555555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.2222222222222"
+              Start="0,0"
+              End="0,33.7222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.7222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.0564236111111,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Data Conversion Output]"
+          TopLeft="348.925924477202,403.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.7037037037036"
+              Start="0,0"
+              End="0,32.2037037037036">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2037037037036" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[OLE DB Source Output]"
+          TopLeft="343.611109178099,62.1666663179795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.7222225709094"
+              Start="0,0"
+              End="0,29.2222225709094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2222225709094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output2]"
+          TopLeft="349.185183736461,310.814814814815">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.6296296296294"
+              Start="0,0"
+              End="0,42.1296296296294">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.1296296296294" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.2601273148147,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output1]"
+          TopLeft="348.666665217943,225.444444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.7037037037038"
+              Start="0,0"
+              End="0,35.2037037037038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.2037037037038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.7971643518519,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command"
+          TopLeft="274.305551468084,612.888884446356" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column"
+          TopLeft="275.694440336277,527.999996538957" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output3]"
+          TopLeft="352.310182406739,485.481481481482">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5185150574754"
+              Start="0,0"
+              End="0,35.0185150574754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0185150574754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.7045700287377,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Derived Column Output]"
+          TopLeft="355.333329235514,570.666663205624">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.2222212407324"
+              Start="0,0"
+              End="0,34.7222212407324">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7222212407324" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split"
+          TopLeft="286.80555128182,703.833329291145" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[OLE DB Command Output]"
+          TopLeft="361.222218041619,655.555551113023">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.2777781781222"
+              Start="0,0"
+              End="0,40.7777781781222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7777781781222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Insert]"
+          TopLeft="340.138884615153,746.499995957812">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146.11110838751,61.4888912186362"
+              Start="0,0"
+              End="-146.11110838751,53.9888912186362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.9701081090909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.9701081090909"
+                    Point2="0,24.9701081090909"
+                    Point3="-4,24.9701081090909" />
+                  <mssgle:LineSegment
+                    End="-142.11110838751,24.9701081090909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.11110838751,24.9701081090909"
+                    Point2="-146.11110838751,24.9701081090909"
+                    Point3="-146.11110838751,28.9701081090909" />
+                  <mssgle:LineSegment
+                    End="-146.11110838751,53.9888912186362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-86.8085424750051,29.9701081090909,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1"
+          TopLeft="430.555549139778,805.555550648107" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Update]"
+          TopLeft="389.472217948486,746.499995957812">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.083331191291,59.055554690295"
+              Start="0,0"
+              End="129.083331191291,51.555554690295">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.981951143267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.981951143267"
+                    Point2="0,23.981951143267"
+                    Point3="4,23.981951143267" />
+                  <mssgle:LineSegment
+                    End="125.083331191291,23.981951143267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="125.083331191291,23.981951143267"
+                    Point2="129.083331191291,23.981951143267"
+                    Point3="129.083331191291,27.981951143267" />
+                  <mssgle:LineSegment
+                    End="129.083331191291,51.555554690295" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="48.2613726268957,28.981951143267,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
