@@ -1,4 +1,4 @@
-USE DMVendas
+USE DMVenda
 GO
 
 DECLARE @DataIni DATE = '2015-01-01'
