@@ -1,0 +1,9 @@
+Olá você que está acompanhando o Curso BI na Plataforma Microsoft, obrigado pela audiência.
+Os arquivos para você montar o ambiente do curso estão em ordem de execução.
+Os demais arquivos que conterem aqui dentro deste diretório de scripts serão somente para acompanhamentos e com algumas anotações, porém,
+nada que precisaram dar atenção.
+
+Grato,
+
+Cristiano Joaquim
+E-mail: cristiano.joaquim@mtac.org.br / cristiano@codelinq.com.br
