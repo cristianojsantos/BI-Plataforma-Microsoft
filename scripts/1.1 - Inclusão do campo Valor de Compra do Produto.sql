@@ -12,8 +12,8 @@ BEGIN
 	DECLARE @valor_produto FLOAT = 0
 
 	/* 
-	   Como È um exemplo, dexarei o percentual de lucro
-	   fixado em 60% do Produto. Logo, o lucro da venda ser· este de 60%
+	   Como √© um exemplo, deixarei o percentual de lucro
+	   fixado em 60% do Produto. Logo, o lucro da venda ser√° este de 60%
 	*/
 	DECLARE @perc_lucro FLOAT = 60
 	DECLARE @valor_compra FLOAT = 0
