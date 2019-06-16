@@ -5,7 +5,7 @@
   proposta nas Aulas, pois, este script irá
   corrigir a estrutura da Tabela Fato de Venda
 =================================================*/
-USE [DMVendas]
+USE [DMVenda]
 GO
 
 ALTER TABLE [dbo].[FatoVenda] DROP CONSTRAINT [FatoVenda_DimVendedor_FK]
