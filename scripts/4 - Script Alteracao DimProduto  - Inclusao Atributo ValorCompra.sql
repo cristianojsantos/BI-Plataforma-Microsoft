@@ -1,2 +1,5 @@
+USE DMVenda
+GO
+
 ALTER TABLE dbo.DimProduto ADD ValorCompra NUMERIC(10,2) NOT NULL DEFAULT 0
 GO
