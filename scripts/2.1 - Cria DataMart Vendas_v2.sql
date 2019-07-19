@@ -16,6 +16,10 @@ CREATE TABLE dbo.ConfiguraExtracao
 )
 GO
 
+INSERT INTO dbo.ConfiguraExtracao (NomeExtracao, DataInicio, DataFim, DiaRetroativo, ExtracaoAtiva)
+VALUES ('FatoVenda', '2016-01-01', '2017-12-31', -15, 1)
+GO
+
 CREATE TABLE dbo.DimTempo
 (
 	 SKTempo INT NOT NULL,
