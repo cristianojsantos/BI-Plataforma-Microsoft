@@ -7,16 +7,25 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{19B10FDD-241C-4DFF-B322-30E2A39586E2}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaFatoVenda"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{CAB12F4B-15F5-4175-8135-7D6E42FD6D42}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{3CFBB85C-89C8-4204-8013-5EFA08981AC4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A44110B6-26F1-48B1-B21B-D0A008454ABA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ConfiguraId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{9DE4479B-BBA6-4E95-BF27-7AC71D690E71}"
@@ -97,7 +106,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8F2C329F-6997-44CD-95DC-F4878AB86774}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="SELECT C.DataInicio,&#xA;&#x9;   C.DataFim&#xA;  FROM dbo.ConfiguraExtracao C WITH(NOLOCK)&#xA; WHERE C.NomeExtracao = 'FatoVenda'"
+          SQLTask:SqlStatementSource="SELECT C.DataInicio,&#xA;&#x9;   C.DataFim,&#xA;                   C.ConfiguraId&#xA;  FROM dbo.ConfiguraExtracao C WITH(NOLOCK)&#xA; WHERE C.NomeExtracao = 'FatoVenda'"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -151,6 +160,7 @@
               <DTS:Variables />
               <DTS:ObjectData>
                 <pipeline
+                  defaultBufferMaxRows="1000"
                   version="1">
                   <components>
                     <component
@@ -436,7 +446,7 @@
                           <inputColumns>
                             <inputColumn
                               refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion.Inputs[Data Conversion Input].Columns[data_venda]"
-                              cachedDataType="dbTimeStamp"
+                              cachedDataType="dbDate"
                               cachedName="data_venda"
                               lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]" />
                           </inputColumns>
@@ -584,7 +594,7 @@
                           description="Specifies the SQL statement that generates the lookup table."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT *
   FROM dbo.DimLoja
 WHERE StatusLoja = 'Current'</property>
                         <property
@@ -592,7 +602,7 @@ WHERE StatusLoja = 'Current'</property>
                           description="Specifies a SQL statement that uses parameters to generate the lookup table."
                           expressionType="Notify"
                           name="SqlCommandParam"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT *
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT *
   FROM dbo.DimLoja
 WHERE StatusLoja = 'Current') [refTable]
 where [refTable].[CodigoLoja] = ?</property>
@@ -746,7 +756,7 @@ where [refTable].[CodigoLoja] = ?</property>
                           description="Specifies the SQL statement that generates the lookup table."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT *
   FROM dbo.DimProduto
 WHERE StatusProduto = 'Current'</property>
                         <property
@@ -754,7 +764,7 @@ WHERE StatusProduto = 'Current'</property>
                           description="Specifies a SQL statement that uses parameters to generate the lookup table."
                           expressionType="Notify"
                           name="SqlCommandParam"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT *
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT *
   FROM dbo.DimProduto
 WHERE StatusProduto = 'Current') [refTable]
 where [refTable].[CodigoProduto] = ? and [refTable].[CodigoCategoria] = ? and [refTable].[CodigoSubCategoria] = ?</property>
@@ -939,13 +949,13 @@ where [refTable].[CodigoProduto] = ? and [refTable].[CodigoCategoria] = ? and [r
                           description="Specifies the SQL statement that generates the lookup table."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimTempo]</property>
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimTempo]</property>
                         <property
                           dataType="System.String"
                           description="Specifies a SQL statement that uses parameters to generate the lookup table."
                           expressionType="Notify"
                           name="SqlCommandParam"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimTempo]) [refTable]
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimTempo]) [refTable]
 where [refTable].[Data] = ?</property>
                         <property
                           dataType="System.Int32"
@@ -1097,7 +1107,7 @@ where [refTable].[Data] = ?</property>
                           description="Specifies the SQL statement that generates the lookup table."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT *
   FROM dbo.DimVendedor
 WHERE StatusVendedor = 'Current'</property>
                         <property
@@ -1105,7 +1115,7 @@ WHERE StatusVendedor = 'Current'</property>
                           description="Specifies a SQL statement that uses parameters to generate the lookup table."
                           expressionType="Notify"
                           name="SqlCommandParam"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT *
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT *
   FROM dbo.DimVendedor
 WHERE StatusVendedor = 'Current') [refTable]
 where [refTable].[CodigoVendedor] = ?</property>
@@ -1263,7 +1273,7 @@ where [refTable].[CodigoVendedor] = ?</property>
                           description="The SQL command to be executed."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ? = COUNT(*)
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ? = COUNT(*)
   FROM dbo.FatoVenda F WITH(NOLOCK)
  WHERE F.CodigoVenda = ?
    AND F.SKTempo = ?
@@ -1449,7 +1459,7 @@ where [refTable].[CodigoVendedor] = ?</property>
                           description="The SQL command to be executed."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.FatoVenda
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE dbo.FatoVenda
    SET ValorVenda = ?,
        Quantidade = ?
  WHERE CodigoVenda = ?
@@ -1662,7 +1672,7 @@ where [refTable].[CodigoVendedor] = ?</property>
                           dataType="System.String"
                           description="The SQL command to be executed."
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT V.cod_venda,
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT V.cod_venda,
 	   V.cod_vendedor,
 	   VE.cod_loja,
 	   V.data_venda,
@@ -1744,7 +1754,7 @@ where [refTable].[CodigoVendedor] = ?</property>
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
                               refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_venda]"
-                              dataType="dbTimeStamp"
+                              dataType="dbDate"
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_venda]"
@@ -1813,7 +1823,7 @@ where [refTable].[CodigoVendedor] = ?</property>
                               name="cod_loja" />
                             <externalMetadataColumn
                               refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_venda]"
-                              dataType="dbTimeStamp"
+                              dataType="dbDate"
                               name="data_venda" />
                             <externalMetadataColumn
                               refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_produto]"
@@ -1859,7 +1869,7 @@ where [refTable].[CodigoVendedor] = ?</property>
                               name="cod_loja" />
                             <outputColumn
                               refId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_venda]"
-                              dataType="dbTimeStamp"
+                              dataType="dbDate"
                               lineageId="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_venda]"
                               name="data_venda" />
                             <outputColumn
@@ -1960,22 +1970,67 @@ where [refTable].[CodigoVendedor] = ?</property>
                 </pipeline>
               </DTS:ObjectData>
             </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\For Loop Container\Execute SQL Task"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{A7F23176-38A1-4FDF-BFB3-242E9BFEDC97}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute SQL Task"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{8F2C329F-6997-44CD-95DC-F4878AB86774}"
+                  SQLTask:SqlStatementSource="UPDATE dbo.ConfiguraExtracao&#xA;   SET DataInicio = ?&#xA; WHERE ConfiguraId = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::DataAtual"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="7"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::ConfiguraId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
           </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\For Loop Container.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{F15AF9E3-4D11-44B4-B640-DAA587241F43}"
+              DTS:From="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Foreach Loop Container\For Loop Container\Execute SQL Task" />
+          </DTS:PrecedenceConstraints>
         </DTS:Executable>
       </DTS:Executables>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E0F6BACC-3396-49B8-8BA5-ECD6E03A2D00}"
-          DTS:ObjectName="{E0F6BACC-3396-49B8-8BA5-ECD6E03A2D00}"
+          DTS:DTSID="{D64B0F92-177E-4EE3-97B8-DB78AF420612}"
+          DTS:ObjectName="{D64B0F92-177E-4EE3-97B8-DB78AF420612}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::DataInicio" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{96647CDB-4492-4F6D-A5F9-1B3C46885BC4}"
-          DTS:ObjectName="{96647CDB-4492-4F6D-A5F9-1B3C46885BC4}"
+          DTS:DTSID="{D66EE18C-3AE5-403C-B596-B06C9B4B2003}"
+          DTS:ObjectName="{D66EE18C-3AE5-403C-B596-B06C9B4B2003}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::DataFim" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{29E63016-7850-41DD-8CE9-8D44E7D7C57C}"
+          DTS:ObjectName="{29E63016-7850-41DD-8CE9-8D44E7D7C57C}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::ConfiguraId" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
@@ -2002,41 +2057,67 @@ where [refTable].[CodigoVendedor] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,42.5"
           Id="Package\Execute SQL Task"
           TopLeft="97.9166652075946,56.7666656515996" />
         <NodeLayout
-          Size="152,42.6666666666667"
+          Size="152,42.5"
           Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda"
           TopLeft="28.6666661202907,23.7666638694207" />
+        <NodeLayout
+          Size="163.5,42"
+          Id="Package\Foreach Loop Container\For Loop Container\Execute SQL Task"
+          TopLeft="24.5833333333334,112" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="105.499999726812,66.2666638694207">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.7333361305793"
+              Start="0,0"
+              End="0,38.2333361305793">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.2333361305793" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="209.333333333334,113.333333333334"
-          Size="209.333333333334,156"
+          PanelSize="209.5,209"
+          Size="209.5,252"
           Id="Package\Foreach Loop Container\For Loop Container"
           TopLeft="25.2499989879628,14.1999978148938" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="283.333333333334,340"
-          Size="283.333333333334,382.666666666667"
+          PanelSize="283.5,321"
+          Size="283.5,364"
           Id="Package\Foreach Loop Container"
           TopLeft="42.4999993667006,130.433331001004" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="182.041665620481,99.4333323182663">
+          TopLeft="182.083332287148,99.2666656515996">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.9999986827374"
+              EndConnector="0,31.1666653494044"
               Start="0,0"
-              End="0,23.4999986827374">
+              End="0,23.6666653494044">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.4999986827374" />
+                    End="0,23.6666653494044" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2054,55 +2135,105 @@ where [refTable].[CodigoVendedor] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor"
-          TopLeft="255.222220773498,182.777777777778" />
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto"
-          TopLeft="266.111109662387,268.148148148148" />
-        <NodeLayout
-          Size="157.333333333334,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion"
-          TopLeft="267.592591143868,360.444444444444" />
-        <NodeLayout
-          Size="168,42.6666666666667"
+          Size="168,42.5"
           Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimTempo"
           TopLeft="267.592591143868,442.814814814815" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source"
-          TopLeft="266.666664249367,19.4999996513128" />
+          Size="166.5,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command"
+          TopLeft="274.305551468084,612.888884446356" />
         <NodeLayout
-          Size="156,42.6666666666667"
+          Size="176,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1"
+          TopLeft="430.555549139778,805.555550648107" />
+        <NodeLayout
+          Size="154.5,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column"
+          TopLeft="275.694440336277,527.999996538957" />
+        <NodeLayout
+          Size="156,42.5"
           Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimLoja"
           TopLeft="267.222220773498,98.8888888888889" />
         <NodeLayout
-          Size="180,42.6666666666667"
+          Size="156,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split"
+          TopLeft="286.80555128182,703.833329291145" />
+        <NodeLayout
+          Size="157.5,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Data Conversion"
+          TopLeft="267.592591143868,360.444444444444" />
+        <NodeLayout
+          Size="180,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimVendedor"
+          TopLeft="255.222220773498,182.777777777778" />
+        <NodeLayout
+          Size="172,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Lookup DimProduto"
+          TopLeft="266.111109662387,268.148148148148" />
+        <NodeLayout
+          Size="150.5,42.5"
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source"
+          TopLeft="266.666664249367,19.4999996513128" />
+        <NodeLayout
+          Size="180,42.5"
           Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\ADO NET Destination"
           TopLeft="104.027776227643,807.988887176448" />
         <EdgeLayout
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output]"
-          TopLeft="345.222220773498,141.555555555556">
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Insert]"
+          TopLeft="340.138884615153,746.499995957812">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.2222222222222"
+              EndConnector="-146.11110838751,61.4888912186362"
               Start="0,0"
-              End="0,33.7222222222222">
+              End="-146.11110838751,53.9888912186362">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.7222222222222" />
+                    End="0,20.9701081090909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.9701081090909"
+                    Point2="0,24.9701081090909"
+                    Point3="-4,24.9701081090909" />
+                  <mssgle:LineSegment
+                    End="-142.11110838751,24.9701081090909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.11110838751,24.9701081090909"
+                    Point2="-146.11110838751,24.9701081090909"
+                    Point3="-146.11110838751,28.9701081090909" />
+                  <mssgle:LineSegment
+                    End="-146.11110838751,53.9888912186362" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.0564236111111,96.3827734375,11.609375"
+              BoundingBox="-86.808542475005,29.9701081090909,27.5059765625,9.40234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Derived Column Output]"
+          TopLeft="355.333329235514,570.666663205624">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.2222212407324"
+              Start="0,0"
+              End="0,34.7222212407324">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7222212407324" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2128,6 +2259,42 @@ where [refTable].[CodigoVendedor] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Update]"
+          TopLeft="389.472217948486,746.499995957812">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.083331191291,59.055554690295"
+              Start="0,0"
+              End="129.083331191291,51.555554690295">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.981951143267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.981951143267"
+                    Point2="0,23.981951143267"
+                    Point3="4,23.981951143267" />
+                  <mssgle:LineSegment
+                    End="125.083331191291,23.981951143267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="125.083331191291,23.981951143267"
+                    Point2="129.083331191291,23.981951143267"
+                    Point3="129.083331191291,27.981951143267" />
+                  <mssgle:LineSegment
+                    End="129.083331191291,51.555554690295" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="48.2613726268955,28.981951143267,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[OLE DB Source Output]"
           TopLeft="343.611109178099,62.1666663179795">
           <EdgeLayout.Curve>
@@ -2147,6 +2314,52 @@ where [refTable].[CodigoVendedor] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[OLE DB Command Output]"
+          TopLeft="361.222218041619,655.555551113023">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.2777781781222"
+              Start="0,0"
+              End="0,40.7777781781222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7777781781222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output3]"
+          TopLeft="352.310182406739,485.481481481482">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5185150574754"
+              Start="0,0"
+              End="0,35.0185150574754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0185150574754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.7045700287377,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2197,159 +2410,27 @@ where [refTable].[CodigoVendedor] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command"
-          TopLeft="274.305551468084,612.888884446356" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Derived Column"
-          TopLeft="275.694440336277,527.999996538957" />
         <EdgeLayout
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output3]"
-          TopLeft="352.310182406739,485.481481481482">
+          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Lookup Match Output]"
+          TopLeft="345.222220773498,141.555555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.5185150574754"
+              EndConnector="0,41.2222222222222"
               Start="0,0"
-              End="0,35.0185150574754">
+              End="0,33.7222222222222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.0185150574754" />
+                    End="0,33.7222222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.7045700287377,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Derived Column Output]"
-          TopLeft="355.333329235514,570.666663205624">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.2222212407324"
-              Start="0,0"
-              End="0,34.7222212407324">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.7222212407324" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\Conditional Split"
-          TopLeft="286.80555128182,703.833329291145" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[OLE DB Command Output]"
-          TopLeft="361.222218041619,655.555551113023">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.2777781781222"
-              Start="0,0"
-              End="0,40.7777781781222">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.7777781781222" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Insert]"
-          TopLeft="340.138884615153,746.499995957812">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-146.11110838751,61.4888912186362"
-              Start="0,0"
-              End="-146.11110838751,53.9888912186362">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.9701081090909" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.9701081090909"
-                    Point2="0,24.9701081090909"
-                    Point3="-4,24.9701081090909" />
-                  <mssgle:LineSegment
-                    End="-142.11110838751,24.9701081090909" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-142.11110838751,24.9701081090909"
-                    Point2="-146.11110838751,24.9701081090909"
-                    Point3="-146.11110838751,28.9701081090909" />
-                  <mssgle:LineSegment
-                    End="-146.11110838751,53.9888912186362" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-86.8085424750051,29.9701081090909,27.5059765625,9.40234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,42.6666666666667"
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Command 1"
-          TopLeft="430.555549139778,805.555550648107" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.Paths[Update]"
-          TopLeft="389.472217948486,746.499995957812">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="129.083331191291,59.055554690295"
-              Start="0,0"
-              End="129.083331191291,51.555554690295">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.981951143267" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.981951143267"
-                    Point2="0,23.981951143267"
-                    Point3="4,23.981951143267" />
-                  <mssgle:LineSegment
-                    End="125.083331191291,23.981951143267" />
-                  <mssgle:CubicBezierSegment
-                    Point1="125.083331191291,23.981951143267"
-                    Point2="129.083331191291,23.981951143267"
-                    Point3="129.083331191291,27.981951143267" />
-                  <mssgle:LineSegment
-                    End="129.083331191291,51.555554690295" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="48.2613726268957,28.981951143267,32.5605859375,11.609375"
+              BoundingBox="-48.19138671875,11.0564236111111,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

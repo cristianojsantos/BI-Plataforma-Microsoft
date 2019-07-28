@@ -7,13 +7,13 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{F234DA86-DA97-4DBF-AC4E-F75703A1A261}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaDimProduto"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E42A73C3-EEE9-46EE-B567-9357403B46A0}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{41E08A29-B804-406E-BC84-462101829D37}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -469,7 +469,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -690,7 +690,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -886,13 +886,13 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Categoria]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Categoria]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Categoria]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Categoria]) [refTable]
 where [refTable].[cod_categoria] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -1046,13 +1046,13 @@ where [refTable].[cod_categoria] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Subcategoria]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Subcategoria]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Subcategoria]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Subcategoria]) [refTable]
 where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -1264,7 +1264,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProduto] SET [StatusProduto] = ? WHERE [CodigoProduto] = ? AND [StatusProduto] = 'Current'</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimProduto] SET [StatusProduto] = ? WHERE [CodigoProduto] = ? AND [StatusProduto] = 'Current'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1380,7 +1380,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProduto] SET [DataFim] = ? WHERE [CodigoProduto] = ? AND [DataFim] IS NULL</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimProduto] SET [DataFim] = ? WHERE [CodigoProduto] = ? AND [DataFim] IS NULL</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1499,7 +1499,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1688,7 +1688,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescdricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorCompra], [ValorProduto],[StatusProduto] FROM [dbo].[DimProduto]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescdricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorCompra], [ValorProduto],[StatusProduto] FROM [dbo].[DimProduto]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -1967,7 +1967,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescdricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorProduto],[DataInicio],[DataFim] FROM [dbo].[DimProduto]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescdricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorProduto],[DataInicio],[DataFim] FROM [dbo].[DimProduto]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -3016,14 +3016,14 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               startId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas.Outputs[Historical Attribute Inserts Output]" />
             <path
               refId="Package\DFT DimProduto.Paths[Lookup Match Output1]"
-              endId="Package\DFT DimProduto\Lookup Categoria.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\DFT DimProduto\Lookup SubCategoria.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\DFT DimProduto.Paths[Lookup Match Output]"
               endId="Package\DFT DimProduto\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\DFT DimProduto\Lookup Categoria.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT DimProduto.Paths[Lookup Match Output]"
+              endId="Package\DFT DimProduto\Lookup Categoria.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT DimProduto\Lookup SubCategoria.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT DimProduto.Paths[Multicast Output 1]"
               endId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas.Inputs[Slowly Changing Dimension Input]"
@@ -3087,9 +3087,9 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="157.333333333334,42.6666666666667"
+          Size="157.5,42.5"
           Id="Package\DFT DimProduto"
-          TopLeft="60,60" />
+          TopLeft="60.25,60" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3099,71 +3099,71 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,42.5"
           Id="Package\DFT DimProduto\Derived Column 2"
           TopLeft="17.5000000000001,621.499999999999" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
+          Size="166.5,42.5"
           Id="Package\DFT DimProduto\OLE DB Command"
           TopLeft="348.166666666667,724.166666666666" />
         <NodeLayout
-          Size="276,42.6666666666667"
+          Size="276,42.5"
           Id="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2"
           TopLeft="104.5,518.833333333332" />
         <NodeLayout
-          Size="121.333333333334,42.6666666666667"
+          Size="121.5,42.5"
           Id="Package\DFT DimProduto\Multicast"
           TopLeft="514.833333333333,416.166666666666" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,42.5"
           Id="Package\DFT DimProduto\Derived Column 1"
           TopLeft="493.5,929.499999999999" />
         <NodeLayout
-          Size="269.333333333334,42.6666666666667"
+          Size="269.5,42.5"
           Id="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas"
           TopLeft="440.833333333333,518.833333333332" />
         <NodeLayout
-          Size="121.333333333334,42.6666666666667"
+          Size="121.5,42.5"
           Id="Package\DFT DimProduto\Union All"
           TopLeft="514.833333333333,826.833333333333" />
         <NodeLayout
-          Size="130.666666666667,42.6666666666667"
+          Size="130.5,42.5"
           Id="Package\DFT DimProduto\Union All 1"
           TopLeft="177.166666666667,826.833333333333" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
+          Size="154.5,42.5"
           Id="Package\DFT DimProduto\Derived Column"
           TopLeft="360.166666666667,621.499999999999" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,42.5"
           Id="Package\DFT DimProduto\Insert Destination"
           TopLeft="493.5,1032.16666666667" />
         <NodeLayout
-          Size="173.333333333334,42.6666666666667"
+          Size="173.5,42.5"
           Id="Package\DFT DimProduto\Insert Destination 1"
           TopLeft="155.833333333333,1032.16666666667" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
+          Size="150.5,42.5"
           Id="Package\DFT DimProduto\OLE DB Source"
           TopLeft="500.166666666667,5.49999999999993" />
         <NodeLayout
-          Size="161.333333333334,42.6666666666667"
+          Size="161.5,42.5"
           Id="Package\DFT DimProduto\Lookup Categoria"
           TopLeft="494.833333333333,210.833333333333" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,42.5"
           Id="Package\DFT DimProduto\Derived Column 3"
           TopLeft="160.5,929.499999999999" />
         <NodeLayout
-          Size="157.333333333334,42.6666666666667"
+          Size="157.5,42.5"
           Id="Package\DFT DimProduto\Data Conversion"
           TopLeft="496.833333333333,313.499999999999" />
         <NodeLayout
-          Size="176,42.6666666666667"
+          Size="176,42.5"
           Id="Package\DFT DimProduto\OLE DB Command 1"
           TopLeft="5.50000000000011,724.166666666666" />
         <NodeLayout
-          Size="180,42.6666666666667"
+          Size="180,42.5"
           Id="Package\DFT DimProduto\Lookup SubCategoria"
           TopLeft="485.5,108.166666666666" />
         <EdgeLayout
@@ -3530,30 +3530,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Lookup Match Output1]"
-          TopLeft="575.5,150.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
-              Start="0,0"
-              End="0,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453124999999,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Lookup Match Output]"
           TopLeft="575.5,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3566,6 +3542,30 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453124999999,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Lookup Match Output]"
+          TopLeft="575.5,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
