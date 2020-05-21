@@ -7,13 +7,13 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{F234DA86-DA97-4DBF-AC4E-F75703A1A261}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaDimProduto"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{41E08A29-B804-406E-BC84-462101829D37}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{5E1924AF-C140-4844-B3CE-2E2F6EBFA9B5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -299,152 +299,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT DimProduto\Derived Column 2"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column 2"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT DimProduto\Derived Column 2.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DFT DimProduto\Derived Column 2.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Output].Columns[DataFim]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Output].Columns[DataFim]"
-                      name="DataFim"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_DBDATE)(@[User::DataInicio])</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_DBDATE)(@[User::DataInicio])</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT DimProduto\Derived Column 2.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT DimProduto\Derived Column 3"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column 3"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT DimProduto\Derived Column 3.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DFT DimProduto\Derived Column 3.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Output].Columns[DataInicio]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Output].Columns[DataInicio]"
-                      name="DataInicio"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_DBDATE)(@[User::DataInicio])</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_DBDATE)(@[User::DataInicio])</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT DimProduto\Derived Column 3.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\DFT DimProduto\Insert Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -658,213 +512,6 @@
                       refId="Package\DFT DimProduto\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT DimProduto\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT DimProduto\Insert Destination 1"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Insert Destination 1"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimProduto]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT DimProduto\Insert Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="{BEC205CB-0FCD-4769-8EB3-76F4E44AFD47}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destino2]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[cod_produto]"
-                      cachedDataType="i4"
-                      cachedName="cod_produto"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoProduto]"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_produto]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[desc_produto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="60"
-                      cachedName="desc_produto"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DescricaoProduto]"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_produto]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[DC_valor_compra]"
-                      cachedDataType="numeric"
-                      cachedName="DC_valor_compra"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ValorProduto]"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_compra]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[cod_categoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_categoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoCategoria]"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_categoria]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[desc_categoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_categoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DescdricaoCategoria]"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_categoria]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[cod_subcategoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_subcategoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoSubCategoria]"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_subcategoria]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[desc_subcategoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_subcategoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DescricaoSubCategoria]"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_subcategoria]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[DataInicio]"
-                      cachedDataType="dbDate"
-                      cachedName="DataInicio"
-                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DataInicio]"
-                      lineageId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Output].Columns[DataInicio]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SKProduto]"
-                      dataType="i4"
-                      name="SKProduto" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoProduto]"
-                      dataType="i4"
-                      name="CodigoProduto" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DescricaoProduto]"
-                      codePage="1252"
-                      dataType="str"
-                      length="60"
-                      name="DescricaoProduto" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ValorProduto]"
-                      dataType="numeric"
-                      name="ValorProduto"
-                      precision="10"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoCategoria]"
-                      dataType="i4"
-                      name="CodigoCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DescdricaoCategoria]"
-                      codePage="1252"
-                      dataType="str"
-                      length="40"
-                      name="DescdricaoCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoSubCategoria]"
-                      dataType="i4"
-                      name="CodigoSubCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DescricaoSubCategoria]"
-                      codePage="1252"
-                      dataType="str"
-                      length="40"
-                      name="DescricaoSubCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DataInicio]"
-                      dataType="dbDate"
-                      name="DataInicio" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[DataFim]"
-                      dataType="dbDate"
-                      name="DataFim" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimProduto\Insert Destination 1.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1230,13 +877,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT DimProduto\Multicast.Outputs[Multicast Output 2]"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 2"
-                  synchronousInputId="Package\DFT DimProduto\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
                   refId="Package\DFT DimProduto\Multicast.Outputs[Multicast Output 3]"
                   dangling="true"
                   deleteOutputOnPathDetached="true"
@@ -1355,118 +995,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                       refId="Package\DFT DimProduto\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT DimProduto\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT DimProduto\OLE DB Command 1"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimProduto] SET [DataFim] = ? WHERE [CodigoProduto] = ? AND [DataFim] IS NULL</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT DimProduto\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="{BEC205CB-0FCD-4769-8EB3-76F4E44AFD47}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destino2]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cod_produto]"
-                      cachedDataType="i4"
-                      cachedName="cod_produto"
-                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]" />
-                    <inputColumn
-                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DataFim]"
-                      cachedDataType="dbDate"
-                      cachedName="DataFim"
-                      externalMetadataColumnId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Output].Columns[DataFim]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="dbDate"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1956,266 +1484,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               </outputs>
             </component>
             <component
-              refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2"
-              componentClassID="Microsoft.SCD"
-              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
-              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
-              name="Slowly Changing Dimension - DMVendas2"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SELECT statement used to create a schema rowset."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescdricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorProduto],[DataInicio],[DataFim] FROM [dbo].[DimProduto]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                  name="CurrentRowWhere">[DataInicio] IS NOT NULL AND [DataFim] IS NULL</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
-                  name="UpdateChangingAttributeHistory">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">true</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the column name for the inferred member."
-                  name="InferredMemberIndicator"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether inferred member updates are detected."
-                  name="EnableInferredMember">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
-                  name="FailOnLookupFailure">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies that all rows in the input are new or the transformation detects the change type."
-                  name="IncomingRowChangeType"
-                  typeConverter="IncomingRowChangeType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Connections[LookupConnection]"
-                  connectionManagerID="{BEC205CB-0FCD-4769-8EB3-76F4E44AFD47}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destino2]"
-                  description="Defines the connection to use for lookups in the dimension table"
-                  name="LookupConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]"
-                  name="Slowly Changing Dimension Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].Columns[cod_categoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_categoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoCategoria]"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].Columns[cod_produto]"
-                      cachedDataType="i4"
-                      cachedName="cod_produto"
-                      externalMetadataColumnId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoProduto]"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].Columns[cod_subcategoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_subcategoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoSubCategoria]"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].Columns[desc_categoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_categoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescdricaoCategoria]"
-                      lineageId="Package\DFT DimProduto\Lookup Categoria.Outputs[Lookup Match Output].Columns[desc_categoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].Columns[desc_produto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="60"
-                      cachedName="desc_produto"
-                      externalMetadataColumnId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescricaoProduto]"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[desc_produto]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].Columns[desc_subcategoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_subcategoria"
-                      externalMetadataColumnId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescricaoSubCategoria]"
-                      lineageId="Package\DFT DimProduto\Lookup SubCategoria.Outputs[Lookup Match Output].Columns[desc_subcategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].Columns[DC_valor_compra]"
-                      cachedDataType="numeric"
-                      cachedName="DC_valor_compra"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[ValorProduto]"
-                      lineageId="Package\DFT DimProduto\Data Conversion.Outputs[Data Conversion Output].Columns[DC_valor_compra]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoCategoria]"
-                      dataType="i4"
-                      name="CodigoCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoProduto]"
-                      dataType="i4"
-                      name="CodigoProduto" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoSubCategoria]"
-                      dataType="i4"
-                      name="CodigoSubCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescdricaoCategoria]"
-                      codePage="1252"
-                      dataType="str"
-                      length="40"
-                      name="DescdricaoCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescricaoProduto]"
-                      codePage="1252"
-                      dataType="str"
-                      length="60"
-                      name="DescricaoProduto" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DescricaoSubCategoria]"
-                      codePage="1252"
-                      dataType="str"
-                      length="40"
-                      name="DescricaoSubCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[ValorProduto]"
-                      dataType="numeric"
-                      name="ValorProduto"
-                      precision="10"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DataInicio]"
-                      dataType="dbDate"
-                      name="DataInicio" />
-                    <externalMetadataColumn
-                      refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input].ExternalColumns[DataFim]"
-                      dataType="dbDate"
-                      name="DataFim" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[Unchanged Output]"
-                  description="Unchanged rows"
-                  exclusionGroup="1"
-                  name="Unchanged Output"
-                  synchronousInputId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[New Output]"
-                  description="New rows"
-                  exclusionGroup="1"
-                  name="New Output"
-                  synchronousInputId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[Fixed Attribute Output]"
-                  description="Rows with changes in columns tagged FixedAttribute"
-                  exclusionGroup="1"
-                  name="Fixed Attribute Output"
-                  synchronousInputId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[Changing Attribute Updates Output]"
-                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
-                  exclusionGroup="1"
-                  name="Changing Attribute Updates Output"
-                  synchronousInputId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[Historical Attribute Inserts Output]"
-                  description="HistoricalAttribute (Type 2) changes result in these new rows"
-                  exclusionGroup="2"
-                  name="Historical Attribute Inserts Output"
-                  synchronousInputId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[Inferred Member Updates Output]"
-                  description="Information to update unpopulated initial dimension row"
-                  exclusionGroup="1"
-                  name="Inferred Member Updates Output"
-                  synchronousInputId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\DFT DimProduto\Union All"
               componentClassID="Microsoft.UnionAll"
               contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -2596,387 +1864,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\DFT DimProduto\Union All 1"
-              componentClassID="Microsoft.UnionAll"
-              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All 1"
-              version="1">
-              <inputs>
-                <input
-                  refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1]"
-                  name="Union All Input 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[cod_produto]"
-                      cachedDataType="i4"
-                      cachedName="cod_produto"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[desc_produto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="60"
-                      cachedName="desc_produto"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[desc_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[valor_produto]"
-                      cachedDataType="r8"
-                      cachedName="valor_produto"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[cod_categoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_categoria"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_categoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[cod_subcategoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_subcategoria"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_subcategoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[valor_compra]"
-                      cachedDataType="r8"
-                      cachedName="valor_compra"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_compra]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_compra]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[desc_subcategoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_subcategoria"
-                      lineageId="Package\DFT DimProduto\Lookup SubCategoria.Outputs[Lookup Match Output].Columns[desc_subcategoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_subcategoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[desc_categoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_categoria"
-                      lineageId="Package\DFT DimProduto\Lookup Categoria.Outputs[Lookup Match Output].Columns[desc_categoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_categoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[DC_valor_produto]"
-                      cachedDataType="numeric"
-                      cachedName="DC_valor_produto"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      lineageId="Package\DFT DimProduto\Data Conversion.Outputs[Data Conversion Output].Columns[DC_valor_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1].Columns[DC_valor_compra]"
-                      cachedDataType="numeric"
-                      cachedName="DC_valor_compra"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      lineageId="Package\DFT DimProduto\Data Conversion.Outputs[Data Conversion Output].Columns[DC_valor_compra]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_compra]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2]"
-                  hasSideEffects="true"
-                  name="Union All Input 2">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[cod_produto]"
-                      cachedDataType="i4"
-                      cachedName="cod_produto"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[desc_produto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="60"
-                      cachedName="desc_produto"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[desc_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[valor_produto]"
-                      cachedDataType="r8"
-                      cachedName="valor_produto"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[cod_categoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_categoria"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_categoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_categoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[cod_subcategoria]"
-                      cachedDataType="i4"
-                      cachedName="cod_subcategoria"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_subcategoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_subcategoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[valor_compra]"
-                      cachedDataType="r8"
-                      cachedName="valor_compra"
-                      lineageId="Package\DFT DimProduto\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor_compra]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_compra]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[desc_subcategoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_subcategoria"
-                      lineageId="Package\DFT DimProduto\Lookup SubCategoria.Outputs[Lookup Match Output].Columns[desc_subcategoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_subcategoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[desc_categoria]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="desc_categoria"
-                      lineageId="Package\DFT DimProduto\Lookup Categoria.Outputs[Lookup Match Output].Columns[desc_categoria]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_categoria]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[DC_valor_produto]"
-                      cachedDataType="numeric"
-                      cachedName="DC_valor_produto"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      lineageId="Package\DFT DimProduto\Data Conversion.Outputs[Data Conversion Output].Columns[DC_valor_produto]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_produto]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2].Columns[DC_valor_compra]"
-                      cachedDataType="numeric"
-                      cachedName="DC_valor_compra"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      lineageId="Package\DFT DimProduto\Data Conversion.Outputs[Data Conversion Output].Columns[DC_valor_compra]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_compra]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 3]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Union All Input 3">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1]"
-                  name="Union All Output 1">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_produto]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_produto]"
-                      name="cod_produto" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_produto]"
-                      codePage="1252"
-                      dataType="str"
-                      length="60"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_produto]"
-                      name="desc_produto" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_produto]"
-                      dataType="r8"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_produto]"
-                      name="valor_produto" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_categoria]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_categoria]"
-                      name="cod_categoria" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_subcategoria]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[cod_subcategoria]"
-                      name="cod_subcategoria" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_compra]"
-                      dataType="r8"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_compra]"
-                      name="valor_compra" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_subcategoria]"
-                      codePage="1252"
-                      dataType="str"
-                      length="40"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_subcategoria]"
-                      name="desc_subcategoria" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_categoria]"
-                      codePage="1252"
-                      dataType="str"
-                      length="40"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[desc_categoria]"
-                      name="desc_categoria" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_produto]"
-                      dataType="numeric"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_produto]"
-                      name="DC_valor_produto"
-                      precision="10"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_compra]"
-                      dataType="numeric"
-                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[DC_valor_compra]"
-                      name="DC_valor_compra"
-                      precision="10"
-                      scale="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
@@ -2995,32 +1882,17 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               name="Derived Column Output"
               startId="Package\DFT DimProduto\Derived Column 1.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT DimProduto.Paths[Derived Column Output2]"
-              endId="Package\DFT DimProduto\OLE DB Command 1.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\DFT DimProduto\Derived Column 2.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DFT DimProduto.Paths[Derived Column Output3]"
-              endId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Output]" />
-            <path
               refId="Package\DFT DimProduto.Paths[Historical Attribute Inserts Output]"
-              endId="Package\DFT DimProduto\Derived Column 2.Inputs[Derived Column Input]"
-              name="Historical Attribute Inserts Output"
-              startId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[Historical Attribute Inserts Output]" />
-            <path
-              refId="Package\DFT DimProduto.Paths[Historical Attribute Inserts Output1]"
               endId="Package\DFT DimProduto\Derived Column.Inputs[Derived Column Input]"
               name="Historical Attribute Inserts Output"
               startId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas.Outputs[Historical Attribute Inserts Output]" />
             <path
-              refId="Package\DFT DimProduto.Paths[Lookup Match Output1]"
+              refId="Package\DFT DimProduto.Paths[Lookup Match Output]"
               endId="Package\DFT DimProduto\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\DFT DimProduto\Lookup Categoria.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\DFT DimProduto.Paths[Lookup Match Output]"
+              refId="Package\DFT DimProduto.Paths[Lookup Match Output1]"
               endId="Package\DFT DimProduto\Lookup Categoria.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\DFT DimProduto\Lookup SubCategoria.Outputs[Lookup Match Output]" />
@@ -3030,27 +1902,12 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               name="Multicast Output 1"
               startId="Package\DFT DimProduto\Multicast.Outputs[Multicast Output 1]" />
             <path
-              refId="Package\DFT DimProduto.Paths[Multicast Output 2]"
-              endId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Inputs[Slowly Changing Dimension Input]"
-              name="Multicast Output 2"
-              startId="Package\DFT DimProduto\Multicast.Outputs[Multicast Output 2]" />
-            <path
               refId="Package\DFT DimProduto.Paths[New Output]"
               endId="Package\DFT DimProduto\Union All.Inputs[Union All Input 1]"
               name="New Output"
               startId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas.Outputs[New Output]" />
             <path
-              refId="Package\DFT DimProduto.Paths[New Output1]"
-              endId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 1]"
-              name="New Output"
-              startId="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2.Outputs[New Output]" />
-            <path
               refId="Package\DFT DimProduto.Paths[OLE DB Command Output]"
-              endId="Package\DFT DimProduto\Union All 1.Inputs[Union All Input 2]"
-              name="OLE DB Command Output"
-              startId="Package\DFT DimProduto\OLE DB Command 1.Outputs[OLE DB Command Output]" />
-            <path
-              refId="Package\DFT DimProduto.Paths[OLE DB Command Output1]"
               endId="Package\DFT DimProduto\Union All.Inputs[Union All Input 2]"
               name="OLE DB Command Output"
               startId="Package\DFT DimProduto\OLE DB Command.Outputs[OLE DB Command Output]" />
@@ -3064,11 +1921,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               endId="Package\DFT DimProduto\Derived Column 1.Inputs[Derived Column Input]"
               name="Union All Output 1"
               startId="Package\DFT DimProduto\Union All.Outputs[Union All Output 1]" />
-            <path
-              refId="Package\DFT DimProduto.Paths[Union All Output 11]"
-              endId="Package\DFT DimProduto\Derived Column 3.Inputs[Derived Column Input]"
-              name="Union All Output 1"
-              startId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3087,7 +1939,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="157.5,42.5"
+          Size="157.6,42.4"
           Id="Package\DFT DimProduto"
           TopLeft="60.25,60" />
       </GraphLayout>
@@ -3097,97 +1949,51 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
     design-time-name="Package\DFT DimProduto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164,42.5"
-          Id="Package\DFT DimProduto\Derived Column 2"
-          TopLeft="17.5000000000001,621.499999999999" />
-        <NodeLayout
-          Size="166.5,42.5"
+          Size="166.4,42.4"
           Id="Package\DFT DimProduto\OLE DB Command"
           TopLeft="348.166666666667,724.166666666666" />
         <NodeLayout
-          Size="276,42.5"
-          Id="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas2"
-          TopLeft="104.5,518.833333333332" />
-        <NodeLayout
-          Size="121.5,42.5"
+          Size="121.6,42.4"
           Id="Package\DFT DimProduto\Multicast"
           TopLeft="514.833333333333,416.166666666666" />
         <NodeLayout
-          Size="164,42.5"
+          Size="164,42.4"
           Id="Package\DFT DimProduto\Derived Column 1"
           TopLeft="493.5,929.499999999999" />
         <NodeLayout
-          Size="269.5,42.5"
+          Size="269.6,42.4"
           Id="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas"
           TopLeft="440.833333333333,518.833333333332" />
         <NodeLayout
-          Size="121.5,42.5"
+          Size="121.6,42.4"
           Id="Package\DFT DimProduto\Union All"
           TopLeft="514.833333333333,826.833333333333" />
         <NodeLayout
-          Size="130.5,42.5"
-          Id="Package\DFT DimProduto\Union All 1"
-          TopLeft="177.166666666667,826.833333333333" />
-        <NodeLayout
-          Size="154.5,42.5"
+          Size="154.4,42.4"
           Id="Package\DFT DimProduto\Derived Column"
           TopLeft="360.166666666667,621.499999999999" />
         <NodeLayout
-          Size="164,42.5"
+          Size="164,42.4"
           Id="Package\DFT DimProduto\Insert Destination"
           TopLeft="493.5,1032.16666666667" />
         <NodeLayout
-          Size="173.5,42.5"
-          Id="Package\DFT DimProduto\Insert Destination 1"
-          TopLeft="155.833333333333,1032.16666666667" />
-        <NodeLayout
-          Size="150.5,42.5"
+          Size="150.4,42.4"
           Id="Package\DFT DimProduto\OLE DB Source"
           TopLeft="500.166666666667,5.49999999999993" />
         <NodeLayout
-          Size="161.5,42.5"
+          Size="161.6,42.4"
           Id="Package\DFT DimProduto\Lookup Categoria"
           TopLeft="494.833333333333,210.833333333333" />
         <NodeLayout
-          Size="164,42.5"
-          Id="Package\DFT DimProduto\Derived Column 3"
-          TopLeft="160.5,929.499999999999" />
-        <NodeLayout
-          Size="157.5,42.5"
+          Size="157.6,42.4"
           Id="Package\DFT DimProduto\Data Conversion"
           TopLeft="496.833333333333,313.499999999999" />
         <NodeLayout
-          Size="176,42.5"
-          Id="Package\DFT DimProduto\OLE DB Command 1"
-          TopLeft="5.50000000000011,724.166666666666" />
-        <NodeLayout
-          Size="180,42.5"
+          Size="180,42.4"
           Id="Package\DFT DimProduto\Lookup SubCategoria"
           TopLeft="485.5,108.166666666666" />
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Derived Column Output2]"
-          TopLeft="96.5000000000001,664.166666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Derived Column Output1]"
           TopLeft="575.5,972.166666666666">
@@ -3255,28 +2061,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Union All Output 11]"
-          TopLeft="242.5,869.499999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Union All Output 1]"
           TopLeft="575.5,869.499999999999">
           <EdgeLayout.Curve>
@@ -3321,7 +2105,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[OLE DB Command Output1]"
+          Id="Package\DFT DimProduto.Paths[OLE DB Command Output]"
           TopLeft="431.5,766.833333333332">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3352,76 +2136,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[OLE DB Command Output]"
-          TopLeft="93.5000000000001,766.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128.555555555556,60"
-              Start="0,0"
-              End="128.555555555556,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5645161290323" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5645161290323"
-                    Point2="0,35.5645161290323"
-                    Point3="4,35.5645161290323" />
-                  <mssgle:LineSegment
-                    End="124.555555555556,35.5645161290323" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.555555555556,35.5645161290323"
-                    Point2="128.555555555556,35.5645161290323"
-                    Point3="128.555555555556,39.5645161290323" />
-                  <mssgle:LineSegment
-                    End="128.555555555556,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[New Output1]"
-          TopLeft="287.166666666667,561.499999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-24.2222222222222,265.333333333333"
-              Start="0,0"
-              End="-24.2222222222222,257.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,127.620989707619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,127.620989707619"
-                    Point2="0,131.620989707619"
-                    Point3="-4,131.620989707619" />
-                  <mssgle:LineSegment
-                    End="-20.2222222222222,131.620989707619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-20.2222222222222,131.620989707619"
-                    Point2="-24.2222222222222,131.620989707619"
-                    Point3="-24.2222222222222,135.620989707619" />
-                  <mssgle:LineSegment
-                    End="-24.2222222222222,257.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-39.2024978298611,136.620989707619,54.1827734375,11.43359375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3461,40 +2175,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Multicast Output 2]"
-          TopLeft="556.611111111111,458.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-314.111111111111,59.9999999999998"
-              Start="0,0"
-              End="-314.111111111111,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.468546637744" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.468546637744"
-                    Point2="0,24.468546637744"
-                    Point3="-4,24.468546637744" />
-                  <mssgle:LineSegment
-                    End="-310.111111111111,24.468546637744" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-310.111111111111,24.468546637744"
-                    Point2="-314.111111111111,24.468546637744"
-                    Point3="-314.111111111111,28.468546637744" />
-                  <mssgle:LineSegment
-                    End="-314.111111111111,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Multicast Output 1]"
           TopLeft="594.388888888889,458.833333333333">
           <EdgeLayout.Curve>
@@ -3530,30 +2210,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Lookup Match Output1]"
-          TopLeft="575.5,253.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453124999999,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Lookup Match Output]"
           TopLeft="575.5,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3577,7 +2233,31 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Historical Attribute Inserts Output1]"
+          Id="Package\DFT DimProduto.Paths[Lookup Match Output]"
+          TopLeft="575.5,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453124999999,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Historical Attribute Inserts Output]"
           TopLeft="531.944444444445,561.499999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3610,64 +2290,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
             <mssgm:EdgeLabel
               BoundingBox="-122.278608940972,29.2125984251969,150.1127734375,11.609375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Historical Attribute Inserts Output]"
-          TopLeft="197.833333333333,561.499999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-98.3333333333333,60.0000000000001"
-              Start="0,0"
-              End="-98.3333333333333,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2074927953891" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2074927953891"
-                    Point2="0,24.2074927953891"
-                    Point3="-4,24.2074927953891" />
-                  <mssgle:LineSegment
-                    End="-94.3333333333333,24.2074927953891" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-94.3333333333333,24.2074927953891"
-                    Point2="-98.3333333333333,24.2074927953891"
-                    Point3="-98.3333333333333,28.2074927953891" />
-                  <mssgle:LineSegment
-                    End="-98.3333333333333,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-124.223053385417,29.2074927953891,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Derived Column Output3]"
-          TopLeft="242.5,972.166666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000003"
-              Start="0,0"
-              End="0,52.5000000000003">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

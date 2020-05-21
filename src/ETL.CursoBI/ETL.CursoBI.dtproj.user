@@ -4,6 +4,9 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <UseWinAuth>false</UseWinAuth>
+        <WinAuthUserName />
+        <WinAuthDomain />
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
