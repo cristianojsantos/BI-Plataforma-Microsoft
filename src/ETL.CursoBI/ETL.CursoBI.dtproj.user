@@ -7,6 +7,8 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <ServerName>CRISJS</ServerName>
+        <PathOnServer>/SSISDB/CursoBI/ETL.CursoBI</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
