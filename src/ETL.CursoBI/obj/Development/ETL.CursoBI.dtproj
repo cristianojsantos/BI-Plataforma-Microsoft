@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">CRISJS</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="CzSDug5ddLc=" SSIS:IV="dogBkIBnO5weWF0nZyMllA==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">Xc+LlMSew36gEoHND3u9GklXcSA5NVshPIVT+kaKrRtMiHHC/4zazEG7oG3KFHHwiKOtIwmY9j+wnoSkI+2yg6oaGW3XJ7PFXbFIY2fxiRU9oSMnp+Pt+80AxlWzaXT446SCedn0QC92v4Vqzq1veEt3wpoLyT0bT/cI2JTOQwizaFRuVHgy6wI8TXzITu2d</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="gaQS87g+vA8=" SSIS:IV="tDbPJFCQfEVwhgQm7DBaWA==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">z7kB7FrO3bIkGGuHuySttshWnqJNpO7XVYOyJHnz/OfpTpPxcLqMrSaxICSECDe8ZALmD3SN6UUte3aUPiXgrjLS6OAKc8CUmsJm4ROLuhZwlIvgzo042TlB9sFt+QwIjxhZMlZ+HdHhfA1kMiyvDBijBMT/mpmDVJM6+hrHPES1cISnxJ2U4PADmt4FEe/W</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -342,10 +342,10 @@
                 <SSIS:Property SSIS:Name="Name">CargaFatoVenda</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">20</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">47</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0509F781-7C62-45C4-AA57-C093DAFEFDFF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4FF36A03-576A-412F-86D8-C3ACB6785EE7}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
