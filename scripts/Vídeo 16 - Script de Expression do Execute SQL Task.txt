@@ -1,0 +1,8 @@
+"INSERT INTO dbo.ErroExecucao VALUES 
+('" + @[System::PackageID]  + "',
+ '" + @[System::MachineName]  + "',
+ '" + @[System::PackageName]  + "',
+ '" + @[System::TaskName]  + "',
+ '" + (DT_STR,50, 1252)@[System::ErrorCode] + "',
+ '" + @[System::ErrorDescription]  + "',
+ getdate())"
