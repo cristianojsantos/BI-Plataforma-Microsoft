@@ -4,6 +4,10 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <AssessmentRuleSuppressionSetting />
+        <UseWinAuth>false</UseWinAuth>
+        <WinAuthUserName />
+        <WinAuthDomain />
         <ServerName>CRISJS</ServerName>
         <PathOnServer>/SSISDB/CursoBI/ETL.CursoBI</PathOnServer>
         <UserIDs />

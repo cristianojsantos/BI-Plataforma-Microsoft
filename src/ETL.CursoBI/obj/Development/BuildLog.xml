@@ -2,53 +2,53 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ETL.CursoBI</Name>
-    <LastWriteTime>2020-09-08T04:31:46.3013335Z</LastWriteTime>
+    <LastWriteTime>2020-10-28T18:20:12.6996481Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-    <Salt>nb/2aIUk</Salt>
-    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlb/ablXr6EqoYlp6BoPgeAAAAAACAAAAAAAQZgAAAAEAACAAAABVCzMsx+ntrIdXdPxRGdSdFdXeccVDw0T0KsM4piYg7QAAAAAOgAAAAAIAACAAAABmRms56aRJfLuwc9DLHx1EwOTn9wmwZ6Z3cV5coCGDEDAAAABF4JXgKhM+jN2F3ViV/Oij/KW/dZlzhyBVGEzlhe6TiRP2zoa6WDWkcDQWRlUFQv5AAAAAExTAxBZZYSvLvVrK+rOk/q7swkHeWlUe9jQFGCBhUyDd8E4/Z7AZxp3hF8tOVYT6iF+6z37Hp8swa7DyDuaevg==</LastKnownProtectedHashedPassword>
+    <Salt>PLNCuxkQ</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0IWZHRZ1N0GFBG9SGdCdcgAAAAACAAAAAAAQZgAAAAEAACAAAAAaM5KHgYmRK4yDUPJmil7MJKW+BflQDtJBHQvX8w7b2QAAAAAOgAAAAAIAACAAAABbA+Asf8JZQltOqUHAhHyzKH+YQsvgerlW8+rUZFY7ujAAAADICaXXJVNwckssOHPOHDDAfsT6e2e/1HwZjO67lRhmmClTyeIniYiFXzjX+LBLYmRAAAAAgu54k6/qrmZY5SjGUiFL14EvKAjxQMpR24lTLZFQ/TAkZw5TJECCgij9R4xhX8gKSvtcpsKS5eFLUBtdNY+IAw==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>CargaGeral.dtsx</Name>
-      <LastWriteTime>2020-05-05T22:34:42.5696532Z</LastWriteTime>
+      <LastWriteTime>2020-10-28T17:24:16.3377364Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>SzkDTrHP</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlb/ablXr6EqoYlp6BoPgeAAAAAACAAAAAAAQZgAAAAEAACAAAABiYYZmJohMCo3Kj0EQk4hYNiXY4eUUZ4Xr7Ut4j5r4eQAAAAAOgAAAAAIAACAAAADNFb3+S60ytTzwn/xUvwEPt4k6mPzyo13nPBLTaUrK0jAAAABEx00Cze3zahLU9J6/hbybAsBPwBDUyuKGUDsMxzl4UA6bN3o7rKWewgoKzQ8NvK1AAAAAbrfmpF8e74HbOqJw1nqchsrpqGj8WajgToMUi+cxiwr/P6K+xtTs0mb2xqCktkfEUHylx6hCmTKw4xtzHOFRFg==</LastKnownProtectedHashedPassword>
+      <Salt>8npLrMCd</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0IWZHRZ1N0GFBG9SGdCdcgAAAAACAAAAAAAQZgAAAAEAACAAAACTPFmv74It1IOTquIl+CfoswIvUtR9kNeN9nVrvb/rGwAAAAAOgAAAAAIAACAAAAAgbXMVRditvqOLJYZwoyWC7Z7wz41Fi42DIbiBHpU6pjAAAAAic3fzYU8hYz2uMN8fq+65tRSxMvU/vjyg+ku8G2/kkvW6HVqEA4FY59wrhCuUgYBAAAAA0M4MR7+dRBFETiQJ5rZ0KtGHWA169sZR8GZ+SC7YJfv/t+y70B8wx3h6ppBieusyyJmjyKGPQdtKeNsEH8yj8A==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CargaDimLoja.dtsx</Name>
-      <LastWriteTime>2020-09-28T23:39:34.6559531Z</LastWriteTime>
+      <LastWriteTime>2020-10-28T18:20:12.6704604Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>2SswOaQX</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlb/ablXr6EqoYlp6BoPgeAAAAAACAAAAAAAQZgAAAAEAACAAAACCmnIsFEDCUgrhQRVuaWD83sXfZIDF67DHcI7Ikc2lRgAAAAAOgAAAAAIAACAAAABL60TF4wPlXnnnJvG8t4wpiQSqq8zl2dTsBJASfvbaUDAAAAA8q4eQ8VpBeWWEkYNJy42YZqRKZqLU0sd4rsq/BkgkdKCpExtawd6s004T927nzyhAAAAAJFroeVsrAFi77uEcivGzARh11lLaGZkrsmszgW1XzwUXbKGsU9GS29SNEa2OdA+3x/DClZfoJ1EO17qGBvxXyg==</LastKnownProtectedHashedPassword>
+      <Salt>u9MEBSK3</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0IWZHRZ1N0GFBG9SGdCdcgAAAAACAAAAAAAQZgAAAAEAACAAAABYhPfRtEqnxnrneAlyPpKrsqR62+DY37NTt2i6y5ekhgAAAAAOgAAAAAIAACAAAAAHNgkYKZCHcyfCnMIjK+Ok8xU2jhbrz+YRJQ4RZM/rTzAAAABr0TIhqDTSEde1ZiKg1fE8N5PFMUU9fjJmlaKpZWWw7Imb6Es3SAezC5DXKpqPBrBAAAAAaEnHQ4UeA1OsxIKbaOcLWAIeJ8ols1NqgbodRYRaxUmeWBi7QqfjkZCazs7R7R2NFGuPQWvSCy/0WMDP/fNOcw==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CargaDimVendedor.dtsx</Name>
-      <LastWriteTime>2020-05-05T22:34:42.5656601Z</LastWriteTime>
+      <LastWriteTime>2020-10-28T17:24:16.3327359Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>sru2uvBT</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlb/ablXr6EqoYlp6BoPgeAAAAAACAAAAAAAQZgAAAAEAACAAAAC9zZwF37MKfXJjs7CPIAtOaLYudjQgUwMvuM/1bLXa7gAAAAAOgAAAAAIAACAAAADS4ZEKh9rPKkwJhDusbyX5bKVQH1gSGdT/oZ0GRLg7dDAAAAD0axs5sSvzwty/6qebl9Wppr1Uu8psY//ilya2cDuFLzGPEfR9K3UctYP9TRE3GOZAAAAA9utddChY0VdvBnfvZ3B6oQGweOQ9x/1+AFKU2Smj+mIuHeAFzbuhaehNt5d3gxPOLMPSECLraGAW+sE3CG/l8w==</LastKnownProtectedHashedPassword>
+      <Salt>BKS9TGWC</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0IWZHRZ1N0GFBG9SGdCdcgAAAAACAAAAAAAQZgAAAAEAACAAAACLVfdehSlcJNKS9vdQBtGNfFBFHDE9eB+ITUYF695NDAAAAAAOgAAAAAIAACAAAADtNIdRA6vQoD+D3cztB1v93a0gg3QAJAHcuv4sF+K3fTAAAACASF35zmeN8j3hrVaYLVaDw5996JqFbvGhkY5nbIh0Vox2NGiUAgZ7w+C0E5HSlGRAAAAAhki9Eff6GWLa9I+w5NvRIFL4v0Y85PGoFTH1dDSpmDCu+3HZi8/Sag3CIfKYe1zqv+xQ9mnR0rd6aeXMuKsQLA==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CargaDimProduto.dtsx</Name>
-      <LastWriteTime>2020-05-21T06:25:43.9598354Z</LastWriteTime>
+      <LastWriteTime>2020-10-28T17:24:16.3307362Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>8O00rP0u</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlb/ablXr6EqoYlp6BoPgeAAAAAACAAAAAAAQZgAAAAEAACAAAACetR7cEUEOrf8t+lEYeloO972WJjjZOqIP41wGLijUyQAAAAAOgAAAAAIAACAAAABv32Zn9KrUHZLoDxDesiHaTadYyzskd5t84RuoA3Z2OTAAAABFLa/A3I472W1cbSJLI7u3Q85DJALUe58oo9cRgrRT06p5Ed44tYT8UHjamgnY25JAAAAAUaNljA8sVP27GQHzdk+Gt430n+w0kIP6MZwZ30ll7bq/Kww/HIrEuSSlNtATygVOQ3t6WzIInJ5QeqpZMWxXNQ==</LastKnownProtectedHashedPassword>
+      <Salt>FVpf8nxT</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0IWZHRZ1N0GFBG9SGdCdcgAAAAACAAAAAAAQZgAAAAEAACAAAAC+SP7Jh/hb6Q4jjs4pX1vkK0MfKRR6QDnEW4F8tyvzPAAAAAAOgAAAAAIAACAAAADPXZG87B1RZBYxbGgBRA2a5iCkEsmybvY6pT3UNSVDMTAAAAA02q7HlQL9k3HRKhLd4F7pfIKWTrYc2Hf4VDyyjBORfisA3fRTV+77CWgRzXhp58dAAAAA8q6ARwrqZcjDmKEQysj4S8tgArztLv8vTBPSPS/ig0jLSdD98sJuzKL5L/vUdJhJhG2WTKIcjJH5dZBd+ifPRg==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CargaDimTempo.dtsx</Name>
-      <LastWriteTime>2020-05-05T22:34:42.5651529Z</LastWriteTime>
+      <LastWriteTime>2020-10-28T17:24:16.3317356Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>kNq3e3O8</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlb/ablXr6EqoYlp6BoPgeAAAAAACAAAAAAAQZgAAAAEAACAAAAASsQXT+DZWDX6tUpspPp8fXhiBIMmEuSKjHe3fVr8vVQAAAAAOgAAAAAIAACAAAACSntVMmJH/coKxhUTjnGEfy08QtvF419V29zeN+8CoZzAAAAC2vggrrE7PmiXCpkzx9mxfGIdIXG0mWZBn7/jQwJFscw4L2poy2uPVcAhxBUFCUulAAAAA378SYK8wvxQsaL9FRSrjGnN/SZgoN/V8Qxg6dx2jXei6F/o5igbPjrqAN+ZZN5jTNMQUl9WZgqvUPCQG1/oV2A==</LastKnownProtectedHashedPassword>
+      <Salt>8qliAGx9</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0IWZHRZ1N0GFBG9SGdCdcgAAAAACAAAAAAAQZgAAAAEAACAAAAAvD8Cx9kBSfGXs2jXcHMlPZ1T6xXtrxPY98Lz114bdrwAAAAAOgAAAAAIAACAAAADwkwbSAwzPReQDP6D6dApuM0ZmJre2DRxbIwxPPpPYBjAAAAA6bV80NP3Yi4KHEkg5xJZ6aXdvIfEgBORbNP/Bo+hfCJ9EczP8w/qOMasy3CivFX1AAAAAV71RsF9ZdpFthRIRSKm0LGOfnAJffRsCR6xuSeoHqCTB1zTW/odF1wRQDHCfP5n3rH1Wg7/gXoxY7zkcYL+XWQ==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CargaFatoVenda.dtsx</Name>
-      <LastWriteTime>2020-05-05T22:34:42.5666968Z</LastWriteTime>
+      <LastWriteTime>2020-10-28T17:24:16.3347352Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>qftNHju3</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlb/ablXr6EqoYlp6BoPgeAAAAAACAAAAAAAQZgAAAAEAACAAAAAh8U0eod96mmVywkXvUHGaOClyDD9T8zFwxJ3lZECnogAAAAAOgAAAAAIAACAAAAAiehAlkwBOl39MC70UKKqK2AR2Ez74mJL1tXDoKfbnijAAAACWiaMiC3e8h0K1T2765ffasrtzkVlC+Bhe+kTz843QKIi/4knVLoN45Emu7hXfArZAAAAAzMLY/PyFqurUHo8tBico/Vh0hphsJrNRtsCnkSPgPxaiW5GSNd+ZX6rAaxCVdaCTTioxaDgdg5nSwFJiREFNPQ==</LastKnownProtectedHashedPassword>
+      <Salt>NEknJuSE</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0IWZHRZ1N0GFBG9SGdCdcgAAAAACAAAAAAAQZgAAAAEAACAAAACLdAohZvlK2qPEXpJ794no1Ka3TjNlgEnsUcjjom10ywAAAAAOgAAAAAIAACAAAADFW+qpbl7CXyo9e6D6NClK+pAdjXskpoKvi3uIQ41xWTAAAACKKnnZk4jnGDUPdynuB/TbkMFzZnxu2GqzzszaPZzwKYt41hSWFOgK8sA0KTFcvKJAAAAAPN2bIGT8ZVtc1daEQDUni7qK4uNuDkwcIvbKtJCmimus9MikLUcrn6H8Yp78HFZ7ajLlNztPMXHePMRWddN7DQ==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>

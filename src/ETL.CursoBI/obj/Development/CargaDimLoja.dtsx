@@ -7,15 +7,27 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{14F1447E-27DD-4EE3-AB36-D1ABD53054DE}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaDimLoja"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{A05C631D-3C89-491F-95D6-A9F5E0198B34}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{9AFC90FD-8AFF-433D-A2DA-000C66E073C0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5DE2D3BD-5376-442D-B438-C91E1E291865}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Trabalho\TJSP\WorkshopBI-STI\Source\GABARITO - DISPONIBILIDADE 4 - 10 09 2020-RP A SEREM CANCELADOS-pronta (2).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -70,7 +82,7 @@
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{8F2C329F-6997-44CD-95DC-F4878AB86774}"
-                  SQLTask:SqlStatementSource="INSERT INTO dbo.ErroExecucao VALUES &#xA;('{14F1447E-27DD-4EE3-AB36-D1ABD53054DE}',&#xA; 'CRISJS',&#xA; 'CargaDimLoja',&#xA; 'Execute SQL Task',&#xA; '0',&#xA; '',&#xA; getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="INSERT INTO dbo.ErroExecucao VALUES &#xA;('{14F1447E-27DD-4EE3-AB36-D1ABD53054DE}',&#xA; 'ANG01',&#xA; 'CargaDimLoja',&#xA; 'Execute SQL Task',&#xA; '0',&#xA; '',&#xA; getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
           </DTS:Executables>
@@ -284,15 +296,15 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT DimLoja\Derived Column 3"
+              refId="Package\DFT DimLoja\Derived Column 1"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column 3"
+              name="Derived Column 1"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT DimLoja\Derived Column 3.Inputs[Derived Column Input]"
+                  refId="Package\DFT DimLoja\Derived Column 1.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -300,21 +312,21 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Output]"
+                  refId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\DFT DimLoja\Derived Column 3.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT DimLoja\Derived Column 1.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Output].Columns[StatusLoja]"
+                      refId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Output].Columns[StatusLoja]"
                       codePage="1252"
                       dataType="str"
                       description="StatusLoja"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="15"
-                      lineageId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Output].Columns[StatusLoja]"
+                      lineageId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Output].Columns[StatusLoja]"
                       name="StatusLoja"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -335,23 +347,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Error Output]"
+                  refId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT DimLoja\Derived Column 3.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT DimLoja\Derived Column 1.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -360,15 +372,15 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT DimLoja\Derived Column 4"
+              refId="Package\DFT DimLoja\Derived Column 2"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column 4"
+              name="Derived Column 2"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT DimLoja\Derived Column 4.Inputs[Derived Column Input]"
+                  refId="Package\DFT DimLoja\Derived Column 2.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -376,21 +388,21 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Output]"
+                  refId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\DFT DimLoja\Derived Column 4.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT DimLoja\Derived Column 2.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Output].Columns[StatusLoja]"
+                      refId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Output].Columns[StatusLoja]"
                       codePage="1252"
                       dataType="str"
                       description="StatusLoja"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="15"
-                      lineageId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Output].Columns[StatusLoja]"
+                      lineageId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Output].Columns[StatusLoja]"
                       name="StatusLoja"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -411,23 +423,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Error Output]"
+                  refId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT DimLoja\Derived Column 4.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT DimLoja\Derived Column 2.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -436,11 +448,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT DimLoja\Insert Destination 1"
+              refId="Package\DFT DimLoja\Insert Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Insert Destination 1"
+              name="Insert Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -493,7 +505,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT DimLoja\Insert Destination 1.Connections[OleDbConnection]"
+                  refId="Package\DFT DimLoja\Insert Destination.Connections[OleDbConnection]"
                   connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Destino]"
                   description="The OLE DB runtime connection used to access the database."
@@ -501,67 +513,67 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[cod_loja]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].Columns[cod_loja]"
                       cachedDataType="i4"
                       cachedName="cod_loja"
-                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoLoja]"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cod_loja]" />
+                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CodigoLoja]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cod_loja]" />
                     <inputColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[nome_loja]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].Columns[nome_loja]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="nome_loja"
-                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[NomeLojas]"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[nome_loja]" />
+                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NomeLoja]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[nome_loja]" />
                     <inputColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[dc_endereco]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].Columns[dc_endereco]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="184"
                       cachedName="dc_endereco"
-                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[EnderecoLoja]"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[dc_endereco]" />
+                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnderecoLoja]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[dc_endereco]" />
                     <inputColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[StatusLoja]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].Columns[StatusLoja]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
                       cachedName="StatusLoja"
-                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[StatusLoja]"
-                      lineageId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Output].Columns[StatusLoja]" />
+                      externalMetadataColumnId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusLoja]"
+                      lineageId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Output].Columns[StatusLoja]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SKLoja]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SKLoja]"
                       dataType="i4"
                       name="SKLoja" />
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CodigoLoja]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CodigoLoja]"
                       dataType="i4"
                       name="CodigoLoja" />
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[NomeLojas]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NomeLoja]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      name="NomeLojas" />
+                      name="NomeLoja" />
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[EnderecoLoja]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnderecoLoja]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="EnderecoLoja" />
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[StatusLoja]"
+                      refId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusLoja]"
                       codePage="1252"
                       dataType="str"
                       length="15"
@@ -571,22 +583,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT DimLoja\Insert Destination 1.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT DimLoja\Insert Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT DimLoja\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT DimLoja\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT DimLoja\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT DimLoja\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -595,86 +607,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT DimLoja\OLE DB Command 1"
+              refId="Package\DFT DimLoja\OLE DB Command"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 9/0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT DimLoja\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destino]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT DimLoja\OLE DB Command 1.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <externalMetadataColumns
-                    isUsed="True" />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimLoja\OLE DB Command 1.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT DimLoja\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimLoja\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT DimLoja\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimLoja\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimLoja\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT DimLoja\OLE DB Command 2"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 2"
+              name="OLE DB Command"
               usesDispositions="true"
               version="2">
               <properties>
@@ -695,7 +632,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT DimLoja\OLE DB Command 2.Connections[OleDbConnection]"
+                  refId="Package\DFT DimLoja\OLE DB Command.Connections[OleDbConnection]"
                   connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Destino]"
                   description="The OLE DB runtime connection used to access the database."
@@ -703,31 +640,31 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input]"
+                  refId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[cod_loja]"
+                      refId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input].Columns[cod_loja]"
                       cachedDataType="i4"
                       cachedName="cod_loja"
-                      externalMetadataColumnId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\DFT DimLoja\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]" />
                     <inputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[StatusLoja]"
+                      refId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input].Columns[StatusLoja]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
                       cachedName="StatusLoja"
-                      externalMetadataColumnId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Output].Columns[StatusLoja]" />
+                      externalMetadataColumnId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Output].Columns[StatusLoja]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       codePage="1252"
                       dataType="str"
                       length="15"
@@ -740,7 +677,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
                       <properties>
@@ -755,166 +692,29 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT DimLoja\OLE DB Command 2.Outputs[OLE DB Command Output]"
+                  refId="Package\DFT DimLoja\OLE DB Command.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT DimLoja\OLE DB Command 2.Outputs[OLE DB Command Error Output]"
+                  refId="Package\DFT DimLoja\OLE DB Command.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT DimLoja\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT DimLoja\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT DimLoja\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT DimLoja\OLE DB Command 3"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 3"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimLoja] SET [EnderecoLoja] = ?,[NomeLojas] = ? WHERE [CodigoLoja] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT DimLoja\OLE DB Command 3.Connections[OleDbConnection]"
-                  connectionManagerID="{8F2C329F-6997-44CD-95DC-F4878AB86774}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destino]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].Columns[cod_loja]"
-                      cachedDataType="i4"
-                      cachedName="cod_loja"
-                      externalMetadataColumnId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\DFT DimLoja\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]" />
-                    <inputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].Columns[dc_endereco]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="184"
-                      cachedName="dc_endereco"
-                      externalMetadataColumnId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\DFT DimLoja\Data Conversion.Outputs[Data Conversion Output].Columns[dc_endereco]" />
-                    <inputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].Columns[nome_loja]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="nome_loja"
-                      externalMetadataColumnId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\DFT DimLoja\OLE DB Source.Outputs[OLE DB Source Output].Columns[nome_loja]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT DimLoja\OLE DB Command 3.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT DimLoja\OLE DB Command 3.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimLoja\OLE DB Command 3.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT DimLoja\OLE DB Command 3.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT DimLoja\OLE DB Command 3.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT DimLoja\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1232,7 +1032,7 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CodigoLoja], [EnderecoLoja], [NomeLojas],[StatusLoja] FROM [dbo].[DimLoja]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CodigoLoja], [EnderecoLoja], [NomeLoja],[StatusLoja] FROM [dbo].[DimLoja]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -1252,7 +1052,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether inferred member updates are detected."
-                  name="EnableInferredMember">true</property>
+                  name="EnableInferredMember">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the transformation fails when a lookup of an existing record fails."
@@ -1314,7 +1114,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="nome_loja"
-                      externalMetadataColumnId="Package\DFT DimLoja\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NomeLojas]"
+                      externalMetadataColumnId="Package\DFT DimLoja\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NomeLoja]"
                       lineageId="Package\DFT DimLoja\OLE DB Source.Outputs[OLE DB Source Output].Columns[nome_loja]">
                       <properties>
                         <property
@@ -1337,11 +1137,11 @@
                       length="200"
                       name="EnderecoLoja" />
                     <externalMetadataColumn
-                      refId="Package\DFT DimLoja\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NomeLojas]"
+                      refId="Package\DFT DimLoja\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NomeLoja]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      name="NomeLojas" />
+                      name="NomeLoja" />
                     <externalMetadataColumn
                       refId="Package\DFT DimLoja\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StatusLoja]"
                       codePage="1252"
@@ -1403,19 +1203,19 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT DimLoja\Union All 1"
+              refId="Package\DFT DimLoja\Union All"
               componentClassID="Microsoft.UnionAll"
               contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All 1"
+              name="Union All"
               version="1">
               <inputs>
                 <input
-                  refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1]"
+                  refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1]"
                   name="Union All Input 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[cod_loja]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[cod_loja]"
                       cachedDataType="i4"
                       cachedName="cod_loja"
                       lineageId="Package\DFT DimLoja\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]">
@@ -1424,11 +1224,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cod_loja]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cod_loja]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[nome_loja]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[nome_loja]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -1439,11 +1239,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[nome_loja]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[nome_loja]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[logradouro]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[logradouro]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
@@ -1454,11 +1254,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[logradouro]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[logradouro]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[numero]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[numero]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="11"
@@ -1469,11 +1269,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[numero]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[numero]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[complemento]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[complemento]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
@@ -1484,11 +1284,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[complemento]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[complemento]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[bairro]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[bairro]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
@@ -1499,11 +1299,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[bairro]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[bairro]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[cep]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[cep]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="9"
@@ -1514,11 +1314,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cep]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cep]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[cidade]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[cidade]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
@@ -1529,11 +1329,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cidade]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cidade]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[estado]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[estado]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="2"
@@ -1544,11 +1344,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[estado]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[estado]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[endereco]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[endereco]"
                       cachedDataType="wstr"
                       cachedLength="184"
                       cachedName="endereco"
@@ -1558,11 +1358,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[endereco]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[endereco]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1].Columns[dc_endereco]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1].Columns[dc_endereco]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="184"
@@ -1573,19 +1373,19 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[dc_endereco]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[dc_endereco]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2]"
+                  refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2]"
                   hasSideEffects="true"
                   name="Union All Input 2">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[cod_loja]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[cod_loja]"
                       cachedDataType="i4"
                       cachedName="cod_loja"
                       lineageId="Package\DFT DimLoja\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_loja]">
@@ -1594,11 +1394,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cod_loja]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cod_loja]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[nome_loja]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[nome_loja]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -1609,11 +1409,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[nome_loja]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[nome_loja]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[logradouro]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[logradouro]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
@@ -1624,11 +1424,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[logradouro]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[logradouro]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[numero]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[numero]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="11"
@@ -1639,11 +1439,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[numero]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[numero]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[complemento]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[complemento]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
@@ -1654,11 +1454,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[complemento]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[complemento]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[bairro]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[bairro]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
@@ -1669,11 +1469,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[bairro]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[bairro]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[cep]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[cep]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="9"
@@ -1684,11 +1484,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cep]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cep]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[cidade]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[cidade]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
@@ -1699,11 +1499,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cidade]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cidade]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[estado]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[estado]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="2"
@@ -1714,11 +1514,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[estado]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[estado]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[endereco]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[endereco]"
                       cachedDataType="wstr"
                       cachedLength="184"
                       cachedName="endereco"
@@ -1728,11 +1528,11 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[endereco]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[endereco]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2].Columns[dc_endereco]"
+                      refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2].Columns[dc_endereco]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="184"
@@ -1743,14 +1543,14 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[dc_endereco]}</property>
+                          name="OutputColumnLineageID">#{Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[dc_endereco]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 3]"
+                  refId="Package\DFT DimLoja\Union All.Inputs[Union All Input 3]"
                   dangling="true"
                   hasSideEffects="true"
                   name="Union All Input 3">
@@ -1759,82 +1559,82 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1]"
+                  refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1]"
                   name="Union All Output 1">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cod_loja]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cod_loja]"
                       dataType="i4"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cod_loja]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cod_loja]"
                       name="cod_loja" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[nome_loja]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[nome_loja]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[nome_loja]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[nome_loja]"
                       name="nome_loja" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[logradouro]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[logradouro]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[logradouro]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[logradouro]"
                       name="logradouro" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[numero]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[numero]"
                       codePage="1252"
                       dataType="str"
                       length="11"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[numero]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[numero]"
                       name="numero" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[complemento]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[complemento]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[complemento]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[complemento]"
                       name="complemento" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[bairro]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[bairro]"
                       codePage="1252"
                       dataType="str"
                       length="30"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[bairro]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[bairro]"
                       name="bairro" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cep]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cep]"
                       codePage="1252"
                       dataType="str"
                       length="9"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cep]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cep]"
                       name="cep" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cidade]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cidade]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[cidade]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[cidade]"
                       name="cidade" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[estado]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[estado]"
                       codePage="1252"
                       dataType="str"
                       length="2"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[estado]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[estado]"
                       name="estado" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[endereco]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[endereco]"
                       dataType="wstr"
                       length="184"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[endereco]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[endereco]"
                       name="endereco" />
                     <outputColumn
-                      refId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[dc_endereco]"
+                      refId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[dc_endereco]"
                       codePage="1252"
                       dataType="str"
                       length="184"
-                      lineageId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1].Columns[dc_endereco]"
+                      lineageId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1].Columns[dc_endereco]"
                       name="dc_endereco" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -1850,44 +1650,34 @@
               startId="Package\DFT DimLoja\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[Derived Column Output]"
-              endId="Package\DFT DimLoja\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              endId="Package\DFT DimLoja\Data Conversion.Inputs[Data Conversion Input]"
               name="Derived Column Output"
               startId="Package\DFT DimLoja\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[Derived Column Output1]"
-              endId="Package\DFT DimLoja\OLE DB Command 2.Inputs[OLE DB Command Input]"
+              endId="Package\DFT DimLoja\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Derived Column Output"
-              startId="Package\DFT DimLoja\Derived Column 3.Outputs[Derived Column Output]" />
+              startId="Package\DFT DimLoja\Derived Column 1.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[Derived Column Output2]"
-              endId="Package\DFT DimLoja\Insert Destination 1.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT DimLoja\Insert Destination.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\DFT DimLoja\Derived Column 4.Outputs[Derived Column Output]" />
+              startId="Package\DFT DimLoja\Derived Column 2.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[Historical Attribute Inserts Output]"
-              endId="Package\DFT DimLoja\Derived Column 3.Inputs[Derived Column Input]"
+              endId="Package\DFT DimLoja\Derived Column 1.Inputs[Derived Column Input]"
               name="Historical Attribute Inserts Output"
               startId="Package\DFT DimLoja\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
             <path
-              refId="Package\DFT DimLoja.Paths[Inferred Member Updates Output]"
-              endId="Package\DFT DimLoja\OLE DB Command 3.Inputs[OLE DB Command Input]"
-              name="Inferred Member Updates Output"
-              startId="Package\DFT DimLoja\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
-            <path
               refId="Package\DFT DimLoja.Paths[New Output]"
-              endId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 1]"
+              endId="Package\DFT DimLoja\Union All.Inputs[Union All Input 1]"
               name="New Output"
               startId="Package\DFT DimLoja\Slowly Changing Dimension.Outputs[New Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[OLE DB Command Output]"
-              endId="Package\DFT DimLoja\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\DFT DimLoja\Union All.Inputs[Union All Input 2]"
               name="OLE DB Command Output"
-              startId="Package\DFT DimLoja\OLE DB Command 1.Outputs[OLE DB Command Output]" />
-            <path
-              refId="Package\DFT DimLoja.Paths[OLE DB Command Output1]"
-              endId="Package\DFT DimLoja\Union All 1.Inputs[Union All Input 2]"
-              name="OLE DB Command Output"
-              startId="Package\DFT DimLoja\OLE DB Command 2.Outputs[OLE DB Command Output]" />
+              startId="Package\DFT DimLoja\OLE DB Command.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[OLE DB Source Output]"
               endId="Package\DFT DimLoja\Derived Column.Inputs[Derived Column Input]"
@@ -1895,9 +1685,9 @@
               startId="Package\DFT DimLoja\OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\DFT DimLoja.Paths[Union All Output 1]"
-              endId="Package\DFT DimLoja\Derived Column 4.Inputs[Derived Column Input]"
+              endId="Package\DFT DimLoja\Derived Column 2.Inputs[Derived Column Input]"
               name="Union All Output 1"
-              startId="Package\DFT DimLoja\Union All 1.Outputs[Union All Output 1]" />
+              startId="Package\DFT DimLoja\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1918,7 +1708,7 @@
         <NodeLayout
           Size="140,42"
           Id="Package\DFT DimLoja"
-          TopLeft="60,60" />
+          TopLeft="341,41.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1928,24 +1718,24 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="150,42"
-          Id="Package\DFT DimLoja\OLE DB Source"
-          TopLeft="167,5.5" />
-        <NodeLayout
           Size="154,42"
           Id="Package\DFT DimLoja\Derived Column"
-          TopLeft="165,107.5" />
+          TopLeft="155.5,107.5" />
         <NodeLayout
-          Size="210,42"
+          Size="209,42"
           Id="Package\DFT DimLoja\Slowly Changing Dimension"
-          TopLeft="137,413.5" />
+          TopLeft="128,311.5" />
         <NodeLayout
           Size="158,42"
           Id="Package\DFT DimLoja\Data Conversion"
-          TopLeft="163,311.5" />
+          TopLeft="153.5,209.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT DimLoja\OLE DB Source"
+          TopLeft="157.5,5.5" />
         <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Data Conversion Output]"
-          TopLeft="242,353.5">
+          Id="Package\DFT DimLoja.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1966,8 +1756,30 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[OLE DB Source Output]"
-          TopLeft="242,47.5">
+          Id="Package\DFT DimLoja.Paths[Derived Column Output]"
+          TopLeft="232.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimLoja.Paths[Data Conversion Output]"
+          TopLeft="232.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1988,12 +1800,52 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="175,42"
-          Id="Package\DFT DimLoja\OLE DB Command 1"
-          TopLeft="154.5,209.5" />
+          Size="163,42"
+          Id="Package\DFT DimLoja\Derived Column 1"
+          TopLeft="8.00000000000006,413.5" />
         <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Derived Column Output]"
-          TopLeft="242,149.5">
+          Id="Package\DFT DimLoja.Paths[Historical Attribute Inserts Output]"
+          TopLeft="199,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109.5,60"
+              Start="0,0"
+              End="-109.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-105.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-105.5,24.2735042735043"
+                    Point2="-109.5,24.2735042735043"
+                    Point3="-109.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-109.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-129.80638671875,29.2735042735043,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DFT DimLoja\OLE DB Command"
+          TopLeft="5.50000000000006,515.5" />
+        <EdgeLayout
+          Id="Package\DFT DimLoja.Paths[Derived Column Output1]"
+          TopLeft="89.0000000000001,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2011,22 +1863,74 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DFT DimLoja\Union All"
+          TopLeft="172,617.5" />
+        <EdgeLayout
+          Id="Package\DFT DimLoja.Paths[New Output]"
+          TopLeft="266,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.6666666666666,264"
+              Start="0,0"
+              End="-14.6666666666666,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,127.104705383637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,127.104705383637"
+                    Point2="0,131.104705383637"
+                    Point3="-4,131.104705383637" />
+                  <mssgle:LineSegment
+                    End="-10.6666666666666,131.104705383637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.6666666666666,131.104705383637"
+                    Point2="-14.6666666666666,131.104705383637"
+                    Point3="-14.6666666666666,135.104705383637" />
+                  <mssgle:LineSegment
+                    End="-14.6666666666666,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.4247200520833,136.104705383637,54.1827734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[OLE DB Command Output]"
-          TopLeft="242,251.5">
+          TopLeft="88.5000000000001,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="125.166666666667,60"
               Start="0,0"
-              End="0,52.5">
+              End="125.166666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2037,151 +1941,11 @@
         </EdgeLayout>
         <NodeLayout
           Size="163,42"
-          Id="Package\DFT DimLoja\Derived Column 3"
-          TopLeft="17.5000000000001,515.5" />
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Historical Attribute Inserts Output]"
-          TopLeft="191.5,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-92.5,60.0000000000001"
-              Start="0,0"
-              End="-92.5,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5015673981192" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5015673981192"
-                    Point2="0,20.5015673981192"
-                    Point3="-4,20.5015673981192" />
-                  <mssgle:LineSegment
-                    End="-88.5,20.5015673981192" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-88.5,20.5015673981192"
-                    Point2="-92.5,20.5015673981192"
-                    Point3="-92.5,24.5015673981192" />
-                  <mssgle:LineSegment
-                    End="-92.5,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-121.30638671875,25.5015673981192,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\DFT DimLoja\OLE DB Command 2"
-          TopLeft="5.50000000000011,617.5" />
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Derived Column Output1]"
-          TopLeft="96.0000000000001,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\DFT DimLoja\Union All 1"
-          TopLeft="177,719.5" />
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[New Output]"
-          TopLeft="242,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20.3333333333333,264"
-              Start="0,0"
-              End="20.3333333333333,256.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,152.474164133739" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,152.474164133739"
-                    Point2="0,156.474164133739"
-                    Point3="4,156.474164133739" />
-                  <mssgle:LineSegment
-                    End="16.3333333333333,156.474164133739" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.3333333333333,156.474164133739"
-                    Point2="20.3333333333333,156.474164133739"
-                    Point3="20.3333333333333,160.474164133739" />
-                  <mssgle:LineSegment
-                    End="20.3333333333333,256.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.9247200520833,161.474164133739,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[OLE DB Command Output1]"
-          TopLeft="93.0000000000001,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128.666666666667,59.9999999999999"
-              Start="0,0"
-              End="128.666666666667,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5623100303951" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5623100303951"
-                    Point2="0,35.5623100303951"
-                    Point3="4,35.5623100303951" />
-                  <mssgle:LineSegment
-                    End="124.666666666667,35.5623100303951" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.666666666667,35.5623100303951"
-                    Point2="128.666666666667,35.5623100303951"
-                    Point3="128.666666666667,39.5623100303951" />
-                  <mssgle:LineSegment
-                    End="128.666666666667,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\DFT DimLoja\Derived Column 4"
-          TopLeft="160.5,821.5" />
+          Id="Package\DFT DimLoja\Derived Column 2"
+          TopLeft="151,719.5" />
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Union All Output 1]"
-          TopLeft="242,761.5">
+          TopLeft="232.5,659.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2202,12 +1966,12 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="172,42"
-          Id="Package\DFT DimLoja\Insert Destination 1"
-          TopLeft="156,923.5" />
+          Size="163,42"
+          Id="Package\DFT DimLoja\Insert Destination"
+          TopLeft="151,821.5" />
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Derived Column Output2]"
-          TopLeft="242,863.5">
+          TopLeft="232.5,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2225,64 +1989,23 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\DFT DimLoja\OLE DB Command 3"
-          TopLeft="303.5,515.5" />
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Inferred Member Updates Output]"
-          TopLeft="292.5,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98.5,60"
-              Start="0,0"
-              End="98.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5015673981191" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5015673981191"
-                    Point2="0,20.5015673981191"
-                    Point3="4,20.5015673981191" />
-                  <mssgle:LineSegment
-                    End="94.5,20.5015673981191" />
-                  <mssgle:CubicBezierSegment
-                    Point1="94.5,20.5015673981191"
-                    Point2="98.5,20.5015673981191"
-                    Point3="98.5,24.5015673981191" />
-                  <mssgle:LineSegment
-                    End="98.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.15298828125,25.5015673981191,148.8059765625,11.658203125"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT DimLoja\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\DFT DimLoja.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFT DimLoja.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="196,56" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <PipelineComponentMetadata
     design-time-name="Package\DFT DimLoja\Slowly Changing Dimension">
     <Properties>
@@ -2308,18 +2031,17 @@
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[nome_loja]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;NomeLojas&lt;/ColumnName&gt;
+      &lt;ColumnName&gt;NomeLoja&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 3&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 4&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 3&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 2&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
   &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
@@ -2331,22 +2053,23 @@
   &lt;StartDateColumn /&gt;
   &lt;EndDateColumn /&gt;
   &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package\DFT DimLoja.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="163,42"
-          Id="Package\DFT DimLoja.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="196,56" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DimLoja\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
