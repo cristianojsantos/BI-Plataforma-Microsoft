@@ -1,0 +1,1 @@
+(DT_STR,60,1252)logradouro + ", " + (DT_STR,11,1252)numero + ", " + TRIM((DT_STR,20,1252)REPLACENULL(complemento,"Nao Informado")) + ", " + (DT_STR,9,1252)cep + ", " + TRIM((DT_STR,30,1252)bairro) + ", " + TRIM((DT_STR,40,1252)cidade) + ", " + TRIM((DT_STR,2,1252)estado)
