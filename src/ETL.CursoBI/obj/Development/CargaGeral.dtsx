@@ -7,13 +7,13 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{B74E99E3-CE22-4476-84D3-3F59C485042E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1046"
   DTS:ObjectName="CargaGeral"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="92"
-  DTS:VersionGUID="{4C9923B5-4E99-4569-BF1D-AE6D645AA2CA}">
+  DTS:VersionBuild="93"
+  DTS:VersionGUID="{857A904D-83FE-4814-8CAF-22974E138AA9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -2189,8 +2189,8 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
               <connections>
                 <connection
                   refId="Package\DFT FatoVenda - Membro Inferido\ADO NET Destination.Connections[IDbConnection]"
-                  connectionManagerID="{EB98FF8D-F973-474A-986E-E96397ACB596}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ADONET]"
+                  connectionManagerID="{EB98FF8D-F973-474A-986E-E96397ACB596}:invalid"
+                  connectionManagerRefId="{EB98FF8D-F973-474A-986E-E96397ACB596}:invalid"
                   description="Managed connection manager"
                   name="IDbConnection" />
               </connections>
@@ -4594,8 +4594,8 @@ where [refTable].[CodigoVendedor] = ?</property>
               <connections>
                 <connection
                   refId="Package\DFT FatoVenda - Processamento Dimensão\ADO NET Destination.Connections[IDbConnection]"
-                  connectionManagerID="{EB98FF8D-F973-474A-986E-E96397ACB596}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ADONET]"
+                  connectionManagerID="{EB98FF8D-F973-474A-986E-E96397ACB596}:invalid"
+                  connectionManagerRefId="{EB98FF8D-F973-474A-986E-E96397ACB596}:invalid"
                   description="Managed connection manager"
                   name="IDbConnection" />
               </connections>
@@ -6978,12 +6978,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaDimProduto.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="ox34uxdrKhk="
-            IV="PcO514Pdm0U7zhqFJ5Ut2Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="7AH0CCV4L1o="
+            IV="UZgEUDBIl+Xhbq7MoHM0sg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>PcO514Pdm0U7zhqFJ5Ut2bNL1xKMd7MSic/wm60ZOQt9AN89tlZihGkKd6iB835wW9zauNQt6U5SJa3OccH7jyQvnKIN2/qYEvBUsRWv/PE=</CipherValue>
+              <CipherValue>UZgEUDBIl+Xhbq7MoHM0sgIVuE6xSDaUL3pHHphWJFkZrn/5xz4PnTVuE8SlCGnqM5+vlwdKX9Tr3cLWP5XQ/AwGbx5DdieATkmV79R9aT8=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -7005,12 +7005,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaDimTempo.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="a41NSOOISiY="
-            IV="pJ+Q+IVuJCfn9EzENyiEpA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="blXP3g88AQo="
+            IV="z6htnryqfT61j8tKKCGhgg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>pJ+Q+IVuJCfn9EzENyiEpGkEf2ABbuuN0w9xK+p5jtLOCbKSbCsuHJS5K//ygpoa/d2TUzqDp1D8Exx23gC4bPr5Ef9I5Rey+RiYbB5f56M=</CipherValue>
+              <CipherValue>z6htnryqfT61j8tKKCGhgjLKw7SMSHxNVFUb/1H4NcPcfkfBzQOP3VftOZjOM/kEdOFlUgG9waC9QQUVAVWe47NGODw6PFk48ulAYAFHIUM=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -7032,12 +7032,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaDimVendedor.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="CxCCKhFJArk="
-            IV="S+JEUfIUaZcz6JyKx8mdIA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="Oh/wYs+a5SQ="
+            IV="nUstwEAvff6c/7XbRJ6Ivw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>S+JEUfIUaZcz6JyKx8mdIAnegEZMr/troTXhwv9drsNAGpNNJ/b1cLgvLLN7oFyvAV5hHoFBBZiY1iRUoNQ+M2uFSEPJp1428+oMg9kgZ+I=</CipherValue>
+              <CipherValue>nUstwEAvff6c/7XbRJ6Iv1wTovZ4qMzcOgj2XqSUe/yBRBieDQZY2VbZliWEGtGbKpf9ovnmwA3moCKewIAkgNb1Dqk+U5J0S14mDY0RerU=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -7059,12 +7059,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaFatoVenda.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="H8WZ+40CQoA="
-            IV="MubXaaqbpZ6Jq2a/66fmoA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="zuTrgwTzuAI="
+            IV="hdTaTstCct790ZVI66yLtA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>MubXaaqbpZ6Jq2a/66fmoKVcZRtlkTo2XuUIrzEKZY/XleZOvnOKQixCrIzBJTcUvc4C74t2OULbEjwDWIHMz/IWnb0yn1xUmIwpxp8JR0A=</CipherValue>
+              <CipherValue>hdTaTstCct790ZVI66yLtIaWIBY6lMtLrOji3A7Nib44t2JJ6YeQ8idL4bt9jShGFXcdBm6e+/elkeWtkKVS4nKoxOMQQFRx6wdC31Kt4RM=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -7124,25 +7124,25 @@ where [refTable].[cod_produto] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
-          Size="188,42.6666666666667"
+          Size="188,43"
           Id="Package\Package CargaDimLoja"
           TopLeft="80.3571416597281,21.0476186712583" />
         <NodeLayout
-          Size="204,42.6666666666667"
+          Size="204,43"
           Id="Package\Package CargaDimProduto"
           TopLeft="70.8333322778344,175.190473057826" />
         <NodeLayout
-          Size="200.666666666667,42.6666666666667"
+          Size="201,43"
           Id="Package\Package CargaDimTempo"
           TopLeft="69.6428561050977,253.809519271056" />
         <NodeLayout
-          Size="213.333333333334,42.6666666666667"
+          Size="213,43"
           Id="Package\Package CargaDimVendedor"
           TopLeft="64.2857133277825,95.9523792366187" />
         <NodeLayout
-          Size="198.666666666667,42.6666666666667"
+          Size="199,43"
           Id="Package\Package CargaFatoVenda"
           TopLeft="73.8095227096762,340.476184388002" />
         <EdgeLayout
@@ -7234,15 +7234,15 @@ where [refTable].[cod_produto] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="246.666666666667,42"
+          Size="247,42"
           Id="Package\DFT DimProduto - Membro Inferido"
           TopLeft="15.5000000000001,5.5" />
         <NodeLayout
-          Size="241.333333333334,42.6666666666667"
+          Size="241,43"
           Id="Package\DFT FatoVenda - Membro Inferido"
           TopLeft="20.15972206338,69.4579344344471" />
         <NodeLayout
-          Size="282.666666666667,42.6666666666667"
+          Size="283,43"
           Id="Package\DFT FatoVenda - Processamento Dimensão"
           TopLeft="5.5,148.957934550676" />
         <EdgeLayout
@@ -7264,20 +7264,18 @@ where [refTable].[cod_produto] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
           Text="Itens Desabilitados"
           ParentId="Package"
           HeaderHeight="43"
-          IsExpanded="False"
-          PanelSize="293.333333333334,246.666666666667"
-          Size="130,42.6666666666667"
+          IsExpanded="True"
+          PanelSize="293,247"
+          Size="293,290"
           Id="7dbd6f59-7c1f-42ce-9ff0-b9abf5e36a09"
-          TopLeft="737.678564409947,37.6904756148657">
+          TopLeft="385.678564409947,40.6904756148657">
           <GroupLayout.ChildrenIds>
             <s:String>Package\DFT DimProduto - Membro Inferido</s:String>
             <s:String>Package\DFT FatoVenda - Membro Inferido</s:String>

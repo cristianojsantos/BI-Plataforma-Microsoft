@@ -7,13 +7,13 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{14F1447E-27DD-4EE3-AB36-D1ABD53054DE}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaDimLoja"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{9AFC90FD-8AFF-433D-A2DA-000C66E073C0}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{A2C7D115-5005-4DF8-AEE1-5AF147B78080}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -82,7 +82,7 @@
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{8F2C329F-6997-44CD-95DC-F4878AB86774}"
-                  SQLTask:SqlStatementSource="INSERT INTO dbo.ErroExecucao VALUES &#xA;('{14F1447E-27DD-4EE3-AB36-D1ABD53054DE}',&#xA; 'ANG01',&#xA; 'CargaDimLoja',&#xA; 'Execute SQL Task',&#xA; '0',&#xA; '',&#xA; getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="INSERT INTO dbo.ErroExecucao VALUES &#xA;('{14F1447E-27DD-4EE3-AB36-D1ABD53054DE}',&#xA; 'CODE01',&#xA; 'CargaDimLoja',&#xA; 'Execute SQL Task',&#xA; '0',&#xA; '',&#xA; getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
           </DTS:Executables>
@@ -472,7 +472,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -624,7 +624,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimLoja] SET [StatusLoja] = ? WHERE [CodigoLoja] = ? AND [StatusLoja] = 'Current'</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimLoja] SET [StatusLoja] = ? WHERE [CodigoLoja] = ? AND [StatusLoja] = 'Current'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -747,7 +747,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1032,7 +1032,7 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CodigoLoja], [EnderecoLoja], [NomeLoja],[StatusLoja] FROM [dbo].[DimLoja]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoLoja], [EnderecoLoja], [NomeLoja],[StatusLoja] FROM [dbo].[DimLoja]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -1708,7 +1708,7 @@
         <NodeLayout
           Size="140,42"
           Id="Package\DFT DimLoja"
-          TopLeft="341,41.5" />
+          TopLeft="341,40.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1718,6 +1718,22 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="150,42"
+          Id="Package\DFT DimLoja\OLE DB Source"
+          TopLeft="157.5,5.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFT DimLoja\Insert Destination"
+          TopLeft="151,821.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFT DimLoja\Derived Column 1"
+          TopLeft="8.00000000000006,413.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DFT DimLoja\Union All"
+          TopLeft="172,617.5" />
+        <NodeLayout
           Size="154,42"
           Id="Package\DFT DimLoja\Derived Column"
           TopLeft="155.5,107.5" />
@@ -1726,16 +1742,20 @@
           Id="Package\DFT DimLoja\Slowly Changing Dimension"
           TopLeft="128,311.5" />
         <NodeLayout
+          Size="166,42"
+          Id="Package\DFT DimLoja\OLE DB Command"
+          TopLeft="5.50000000000006,515.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFT DimLoja\Derived Column 2"
+          TopLeft="151,719.5" />
+        <NodeLayout
           Size="158,42"
           Id="Package\DFT DimLoja\Data Conversion"
           TopLeft="153.5,209.5" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\DFT DimLoja\OLE DB Source"
-          TopLeft="157.5,5.5" />
         <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[OLE DB Source Output]"
-          TopLeft="232.5,47.5">
+          Id="Package\DFT DimLoja.Paths[Derived Column Output1]"
+          TopLeft="89.0000000000001,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1799,53 +1819,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\DFT DimLoja\Derived Column 1"
-          TopLeft="8.00000000000006,413.5" />
         <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Historical Attribute Inserts Output]"
-          TopLeft="199,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-109.5,60"
-              Start="0,0"
-              End="-109.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-105.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-105.5,24.2735042735043"
-                    Point2="-109.5,24.2735042735043"
-                    Point3="-109.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-109.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-129.80638671875,29.2735042735043,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\DFT DimLoja\OLE DB Command"
-          TopLeft="5.50000000000006,515.5" />
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Derived Column Output1]"
-          TopLeft="89.0000000000001,455.5">
+          Id="Package\DFT DimLoja.Paths[Union All Output 1]"
+          TopLeft="232.5,659.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1865,10 +1841,62 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\DFT DimLoja\Union All"
-          TopLeft="172,617.5" />
+        <EdgeLayout
+          Id="Package\DFT DimLoja.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimLoja.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166666666667,60"
+              Start="0,0"
+              End="125.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[New Output]"
           TopLeft="266,353.5">
@@ -1906,69 +1934,41 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,557.5">
+          Id="Package\DFT DimLoja.Paths[Historical Attribute Inserts Output]"
+          TopLeft="199,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.166666666667,60"
+              EndConnector="-109.5,60"
               Start="0,0"
-              End="125.166666666667,52.5">
+              End="-109.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5301794453507" />
+                    End="0,20.2735042735043" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5301794453507"
-                    Point2="0,35.5301794453507"
-                    Point3="4,35.5301794453507" />
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
                   <mssgle:LineSegment
-                    End="121.166666666667,35.5301794453507" />
+                    End="-105.5,24.2735042735043" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.166666666667,35.5301794453507"
-                    Point2="125.166666666667,35.5301794453507"
-                    Point3="125.166666666667,39.5301794453507" />
+                    Point1="-105.5,24.2735042735043"
+                    Point2="-109.5,24.2735042735043"
+                    Point3="-109.5,28.2735042735043" />
                   <mssgle:LineSegment
-                    End="125.166666666667,52.5" />
+                    End="-109.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-129.80638671875,29.2735042735043,150.1127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\DFT DimLoja\Derived Column 2"
-          TopLeft="151,719.5" />
-        <EdgeLayout
-          Id="Package\DFT DimLoja.Paths[Union All Output 1]"
-          TopLeft="232.5,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\DFT DimLoja\Insert Destination"
-          TopLeft="151,821.5" />
         <EdgeLayout
           Id="Package\DFT DimLoja.Paths[Derived Column Output2]"
           TopLeft="232.5,761.5">
@@ -2006,6 +2006,19 @@
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DimLoja\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT DimLoja\Slowly Changing Dimension">
     <Properties>
@@ -2055,19 +2068,6 @@
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT DimLoja\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

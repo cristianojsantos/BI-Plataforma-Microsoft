@@ -7,13 +7,13 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{F234DA86-DA97-4DBF-AC4E-F75703A1A261}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaDimProduto"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{0E37F6AF-D441-4415-A7C5-0CF61CB5FB49}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{6E6207D1-73C5-4661-817E-E4DB130ECA0B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -323,7 +323,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -428,6 +428,12 @@
                       cachedName="StatusProduto"
                       externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[StatusProduto]"
                       lineageId="Package\DFT DimProduto\Derived Column 3.Outputs[Derived Column Output].Columns[StatusProduto]" />
+                    <inputColumn
+                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[valor_compra]"
+                      cachedDataType="r8"
+                      cachedName="valor_compra"
+                      externalMetadataColumnId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ValorCompra]"
+                      lineageId="Package\DFT DimProduto\Union All 1.Outputs[Union All Output 1].Columns[valor_compra]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -477,6 +483,16 @@
                       dataType="str"
                       length="15"
                       name="StatusProduto" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ValorCompra]"
+                      dataType="numeric"
+                      name="ValorCompra"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DimProduto\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[MembroInferido]"
+                      dataType="bool"
+                      name="MembroInferido" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -519,13 +535,13 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Categoria]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Categoria]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Categoria]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Categoria]) [refTable]
 where [refTable].[cod_categoria] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -679,13 +695,13 @@ where [refTable].[cod_categoria] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Subcategoria]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Subcategoria]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Subcategoria]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Subcategoria]) [refTable]
 where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -890,7 +906,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimProduto] SET [StatusProduto] = ? WHERE [CodigoProduto] = ? AND [StatusProduto] = 'Current'</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProduto] SET [StatusProduto] = ? WHERE [CodigoProduto] = ? AND [StatusProduto] = 'Current'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1013,7 +1029,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1202,7 +1218,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescdricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorProduto],[StatusProduto] FROM [dbo].[DimProduto]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoCategoria], [CodigoProduto], [CodigoSubCategoria], [DescdricaoCategoria], [DescricaoProduto], [DescricaoSubCategoria], [ValorProduto],[StatusProduto] FROM [dbo].[DimProduto]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -1904,7 +1920,7 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="157.6,42.4"
+          Size="158,42"
           Id="Package\DFT DimProduto"
           TopLeft="60.25,60" />
       </GraphLayout>
@@ -1916,29 +1932,137 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="180,42.4"
-          Id="Package\DFT DimProduto\Lookup SubCategoria"
-          TopLeft="377.7,107.9" />
+          Size="162,42"
+          Id="Package\DFT DimProduto\Derived Column 2"
+          TopLeft="244.5,620.300000000001" />
         <NodeLayout
-          Size="150.4,42.4"
-          Id="Package\DFT DimProduto\OLE DB Source"
-          TopLeft="392.5,5.50000000000005" />
+          Size="130,42"
+          Id="Package\DFT DimProduto\Union All 1"
+          TopLeft="402.9,825.100000000001" />
         <NodeLayout
-          Size="269.6,42.4"
-          Id="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas"
-          TopLeft="332.9,517.5" />
-        <NodeLayout
-          Size="121.6,42.4"
+          Size="122,42"
           Id="Package\DFT DimProduto\Multicast"
           TopLeft="406.9,415.1" />
         <NodeLayout
-          Size="157.6,42.4"
+          Size="171,42"
+          Id="Package\DFT DimProduto\Insert Destination 1"
+          TopLeft="382.1,1029.9" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DFT DimProduto\Lookup SubCategoria"
+          TopLeft="377.7,107.9" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\DFT DimProduto\Derived Column 3"
+          TopLeft="386.5,927.500000000001" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DFT DimProduto\OLE DB Command 1"
+          TopLeft="232.5,722.700000000001" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT DimProduto\OLE DB Source"
+          TopLeft="392.5,5.50000000000005" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas"
+          TopLeft="332.9,517.5" />
+        <NodeLayout
+          Size="158,42"
           Id="Package\DFT DimProduto\Data Conversion"
           TopLeft="388.9,312.7" />
         <NodeLayout
-          Size="161.6,42.4"
+          Size="162,42"
           Id="Package\DFT DimProduto\Lookup Categoria"
           TopLeft="386.9,210.3" />
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Derived Column Output1]"
+          TopLeft="322.7,661.900000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.8000000000001"
+              Start="0,0"
+              End="0,53.3000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Derived Column Output]"
+          TopLeft="467.7,969.100000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.8000000000001"
+              Start="0,0"
+              End="0,53.3000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Data Conversion Output]"
+          TopLeft="467.7,355.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[Union All Output 1]"
+          TopLeft="467.7,866.700000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.8000000000001"
+              Start="0,0"
+              End="0,53.3000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimProduto.Paths[OLE DB Source Output]"
           TopLeft="467.7,47.9">
@@ -1959,6 +2083,76 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[OLE DB Command Output]"
+          TopLeft="319.7,764.300000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.733333333333,60.8000000000001"
+              Start="0,0"
+              End="127.733333333333,53.3000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.0351219512196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.0351219512196"
+                    Point2="0,36.0351219512196"
+                    Point3="4,36.0351219512196" />
+                  <mssgle:LineSegment
+                    End="123.733333333333,36.0351219512196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.733333333333,36.0351219512196"
+                    Point2="127.733333333333,36.0351219512196"
+                    Point3="127.733333333333,40.0351219512196" />
+                  <mssgle:LineSegment
+                    End="127.733333333333,53.3000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DimProduto.Paths[New Output]"
+          TopLeft="511.3,559.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.3333333333334,265.2"
+              Start="0,0"
+              End="-23.3333333333334,257.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,127.561122104528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,127.561122104528"
+                    Point2="0,131.561122104528"
+                    Point3="-4,131.561122104528" />
+                  <mssgle:LineSegment
+                    End="-19.3333333333334,131.561122104528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.3333333333334,131.561122104528"
+                    Point2="-23.3333333333334,131.561122104528"
+                    Point3="-23.3333333333334,135.561122104528" />
+                  <mssgle:LineSegment
+                    End="-23.3333333333334,257.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.7580533854167,136.561122104528,54.1827734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2032,184 +2226,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Data Conversion Output]"
-          TopLeft="467.7,355.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\DFT DimProduto\Union All 1"
-          TopLeft="402.9,825.100000000001" />
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[New Output]"
-          TopLeft="511.3,559.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-23.3333333333334,265.2"
-              Start="0,0"
-              End="-23.3333333333334,257.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,127.561122104528" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,127.561122104528"
-                    Point2="0,131.561122104528"
-                    Point3="-4,131.561122104528" />
-                  <mssgle:LineSegment
-                    End="-19.3333333333334,131.561122104528" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-19.3333333333334,131.561122104528"
-                    Point2="-23.3333333333334,131.561122104528"
-                    Point3="-23.3333333333334,135.561122104528" />
-                  <mssgle:LineSegment
-                    End="-23.3333333333334,257.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-38.7580533854167,136.561122104528,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DFT DimProduto\Derived Column 3"
-          TopLeft="386.5,927.500000000001" />
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Union All Output 1]"
-          TopLeft="467.7,866.700000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.8000000000001"
-              Start="0,0"
-              End="0,53.3000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.3000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\DFT DimProduto\Insert Destination 1"
-          TopLeft="382.1,1029.9" />
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Derived Column Output]"
-          TopLeft="467.7,969.100000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.8000000000001"
-              Start="0,0"
-              End="0,53.3000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.3000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\DFT DimProduto\OLE DB Command 1"
-          TopLeft="232.5,722.700000000001" />
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[OLE DB Command Output]"
-          TopLeft="319.7,764.300000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.733333333333,60.8000000000001"
-              Start="0,0"
-              End="127.733333333333,53.3000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.0351219512196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.0351219512196"
-                    Point2="0,36.0351219512196"
-                    Point3="4,36.0351219512196" />
-                  <mssgle:LineSegment
-                    End="123.733333333333,36.0351219512196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.733333333333,36.0351219512196"
-                    Point2="127.733333333333,36.0351219512196"
-                    Point3="127.733333333333,40.0351219512196" />
-                  <mssgle:LineSegment
-                    End="127.733333333333,53.3000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\DFT DimProduto\Derived Column 2"
-          TopLeft="244.5,620.300000000001" />
-        <EdgeLayout
-          Id="Package\DFT DimProduto.Paths[Derived Column Output1]"
-          TopLeft="322.7,661.900000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.8000000000001"
-              Start="0,0"
-              End="0,53.3000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.3000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT DimProduto.Paths[Historical Attribute Inserts Output]"
           TopLeft="424.1,559.9">
           <EdgeLayout.Curve>
@@ -2248,6 +2264,19 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DimProduto\Insert Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas">
     <Properties>
