@@ -12,8 +12,8 @@
   DTS:ObjectName="CargaDimLoja"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{A2C7D115-5005-4DF8-AEE1-5AF147B78080}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{4484A103-0871-4017-824E-F834E3EFFBBA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

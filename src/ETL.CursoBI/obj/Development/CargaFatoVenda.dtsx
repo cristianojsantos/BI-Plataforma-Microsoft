@@ -12,8 +12,8 @@
   DTS:ObjectName="CargaFatoVenda"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{F469345C-478F-4B90-9DFA-DAB5452D804C}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{371B9BD2-1E94-4672-898F-D795FB4B8BCA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -1900,14 +1900,6 @@ where [refTable].[CodigoVendedor] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <DtsEventHandler
     design-time-name="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda.EventHandlers[OnPreExecute]">
     <LayoutInfo>
@@ -1920,5 +1912,13 @@ where [refTable].[CodigoVendedor] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\For Loop Container\DFT FatoVenda\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

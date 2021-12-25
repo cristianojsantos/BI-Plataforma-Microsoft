@@ -7,13 +7,13 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{617FE9E3-FC74-49C7-813B-C49B05F45D6C}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaDimVendedor"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{C5EEF7FA-7D96-46D2-ADCD-3CA812292A27}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{F19DF06E-2D0F-4A15-ACAA-2E3BF1E0388B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1217,7 +1217,7 @@ where [refTable].[CodigoLoja] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="165.333333333334,42.6666666666667"
+          Size="165,43"
           Id="Package\DFT DimVendedor"
           TopLeft="60,60" />
       </GraphLayout>

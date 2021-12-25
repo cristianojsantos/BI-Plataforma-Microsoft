@@ -12,8 +12,8 @@
   DTS:ObjectName="CargaGeral"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="93"
-  DTS:VersionGUID="{857A904D-83FE-4814-8CAF-22974E138AA9}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{9CA67477-6FB5-4FA8-BE63-3E999A7EA51B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -6965,7 +6965,7 @@ where [refTable].[cod_produto] = ?</property>
     <DTS:Executable
       DTS:refId="Package\Package CargaDimProduto"
       DTS:CreationName="Microsoft.ExecutePackageTask"
-      DTS:Description="Execute Package Task"
+      DTS:Description="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:DTSID="{433294A1-AA85-4E61-9779-5218D575BD6B}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -6978,12 +6978,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaDimProduto.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="svzCid/iH80="
-            IV="JdCTcW9B0+HEIJW2E+tg1g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="tzkE/tj3hvI="
+            IV="g5rEyiQR6o/U1c4VGc8d9g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>JdCTcW9B0+HEIJW2E+tg1oqUD3feEv5t2X8ZsuJB6JHT+c6mA7pwJHK5jdHEMsy6CEKTwWpcpWTTW8c1G7yR/lurGrPffrzdEmUOU4CRJm4=</CipherValue>
+              <CipherValue>g5rEyiQR6o/U1c4VGc8d9s5q2rXhkTNgva83qYI3idUrGPL//eCBaZD1k8HAwRn9mT3cyz4zrsoXFPUi3Ap+bZEXcDh7P0C71Y6Z1nDwn5s=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -6992,7 +6992,7 @@ where [refTable].[cod_produto] = ?</property>
     <DTS:Executable
       DTS:refId="Package\Package CargaDimTempo"
       DTS:CreationName="Microsoft.ExecutePackageTask"
-      DTS:Description="Execute Package Task"
+      DTS:Description="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:DTSID="{F149ABF0-B3F7-4A88-ACCA-5714431C1F45}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -7005,12 +7005,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaDimTempo.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="is9EGWqUcw8="
-            IV="owcGH/imgfNroGtk/Pvl7g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="utW3fjq5GNs="
+            IV="DHa2OI+HdAW0NBYRr+mO9w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>owcGH/imgfNroGtk/Pvl7h6cfSzm/SE5dnRrKZ6AOAOifd1Z/sk6/8M5x2TxyIwpflKcIbRbB//BPFaxQouKLAvpLWQ2dY40YWUYiFV/LDA=</CipherValue>
+              <CipherValue>DHa2OI+HdAW0NBYRr+mO95paWe6ritTLPELTr7rXIE2rYABYyJNkotMs0AYadJcy62P/jziQVy5ygzkMX7tJzMmOYdRxhzZpshkJg7m3yVM=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -7019,7 +7019,7 @@ where [refTable].[cod_produto] = ?</property>
     <DTS:Executable
       DTS:refId="Package\Package CargaDimVendedor"
       DTS:CreationName="Microsoft.ExecutePackageTask"
-      DTS:Description="Execute Package Task"
+      DTS:Description="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:DTSID="{F1C7745C-62F1-49FA-9298-E7A6054C7614}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -7032,12 +7032,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaDimVendedor.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="4UyW9OJhEC4="
-            IV="xH42IlSDWG+rSB7/ZF87tQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="VCPPIQPfAZc="
+            IV="FG9tDzb7aPSv7ymungF4rw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>xH42IlSDWG+rSB7/ZF87ta5hJPh2KuFM9rnR/bGVvy9Jk2uCo/W21XdW9XPZHjQZGXe/ZrP8sReaktH2jPClNsHbrZDaEYOgKBqMT6up09U=</CipherValue>
+              <CipherValue>FG9tDzb7aPSv7ymungF4r2sc8Q/wUcLPBKOO4rNJFpTtnzuJ215/hFJm/2DJ0rMKFYX4B1SnjQKC1hEo04GWOyQQS2L2qtB65T/cCcm6wak=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -7046,7 +7046,7 @@ where [refTable].[cod_produto] = ?</property>
     <DTS:Executable
       DTS:refId="Package\Package CargaFatoVenda"
       DTS:CreationName="Microsoft.ExecutePackageTask"
-      DTS:Description="Execute Package Task"
+      DTS:Description="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:DTSID="{2B7C9939-55AC-4167-AB02-86B1966ED8A4}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -7059,12 +7059,12 @@ where [refTable].[cod_produto] = ?</property>
           <PackageName>CargaFatoVenda.dtsx</PackageName>
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="7M7np/11qbA="
-            IV="qtkbmv8cuLnwABMZVIoQ6g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="uVQ/ToyhUQw="
+            IV="Wka6LLtzY922wLkPUJ9ZtA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>qtkbmv8cuLnwABMZVIoQ6kkRl863n7RrdBJouMyf0b0+1r8VNZJgoq0GomLLGQKonF0kG2n8+Ybai9h9OCT8dmdbx6zlRxUcLpjm8nu2XyE=</CipherValue>
+              <CipherValue>Wka6LLtzY922wLkPUJ9ZtO76Fo6Zph/T42dA0hbdHIhTQnLnv/TCFfCk9BBQMTKhgWcnhlmvPHSRhgFZqkmhmsMIS9n9tmCvSHT2t/e32Ig=</CipherValue>
             </CipherData>
           </EncryptedData>
         </ExecutePackageTask>
@@ -7136,7 +7136,7 @@ where [refTable].[cod_produto] = ?</property>
         <NodeLayout
           Size="201,43"
           Id="Package\Package CargaDimTempo"
-          TopLeft="69.6428561050977,253.809519271056" />
+          TopLeft="69.6428561050977,254.809519271056" />
         <NodeLayout
           Size="213,43"
           Id="Package\Package CargaDimVendedor"
@@ -7144,7 +7144,7 @@ where [refTable].[cod_produto] = ?</property>
         <NodeLayout
           Size="199,43"
           Id="Package\Package CargaFatoVenda"
-          TopLeft="73.8095227096762,340.476184388002" />
+          TopLeft="73.8095227096762,339.476184388002" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="172.654760827089,63.7142853379249">
@@ -7191,18 +7191,18 @@ where [refTable].[cod_produto] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="171.404760858133,217.857139724493">
+          TopLeft="171.488094191466,218.190473057826">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.9523795465628"
+              EndConnector="0,36.61904621323"
               Start="0,0"
-              End="0,28.4523795465628">
+              End="0,29.11904621323">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.4523795465628" />
+                    End="0,29.11904621323" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7213,18 +7213,18 @@ where [refTable].[cod_produto] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="171.55952274072,296.476185937723">
+          TopLeft="171.726189407387,297.809519271056">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.9999984502794"
+              EndConnector="0,41.666665116946"
               Start="0,0"
-              End="0,36.4999984502794">
+              End="0,34.166665116946">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.4999984502794" />
+                    End="0,34.166665116946" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

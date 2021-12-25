@@ -12,8 +12,8 @@
   DTS:ObjectName="CargaDimProduto"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{6E6207D1-73C5-4661-817E-E4DB130ECA0B}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{13EC01E5-BAB2-4F8F-BA2C-EA1ABE418B8D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -2265,19 +2265,6 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT DimProduto\Insert Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DFT DimProduto\Slowly Changing Dimension - DMVendas">
     <Properties>
       <Property>
@@ -2350,6 +2337,19 @@ where [refTable].[cod_categoria] = ? and [refTable].[cod_subcategoria] = ?</prop
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DimProduto\Insert Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

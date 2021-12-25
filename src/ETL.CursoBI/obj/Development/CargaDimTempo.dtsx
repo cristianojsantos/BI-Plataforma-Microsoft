@@ -7,13 +7,13 @@
   DTS:CreatorName="CRISJS\crisj"
   DTS:DTSID="{6D0E2E4E-BFC7-4B4A-9450-A8FC60EA597A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1033"
   DTS:ObjectName="CargaDimTempo"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{332E4CA5-3D10-45BC-A3BD-C41D0CB36011}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{5C550C3F-750C-4C5C-8E58-23325C5D361E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -48,7 +48,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="153.333333333334,42.6666666666667"
+          Size="153,43"
           Id="Package\DFT DimTempo"
           TopLeft="60,60" />
       </GraphLayout>
