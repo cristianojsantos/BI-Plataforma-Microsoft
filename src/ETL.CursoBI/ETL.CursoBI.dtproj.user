@@ -4,7 +4,7 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
-        <ServerName>CODE01</ServerName>
+        <ServerName>.</ServerName>
         <PathOnServer>/SSISDB/CursoBI/ETL.CursoBI</PathOnServer>
         <UserIDs />
         <UserPasswords />

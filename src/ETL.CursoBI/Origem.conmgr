@@ -3,8 +3,6 @@
   DTS:ObjectName="Origem"
   DTS:DTSID="{B8A115DE-295B-4FDC-A0EF-90CA5CE1D5F8}"
   DTS:CreationName="OLEDB">
-  <DTS:PropertyExpression
-    DTS:Name="ConnectionString">@[$Project::StringConexaoOrigem]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectionString="Data Source=(local);Initial Catalog=DBVendas;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />

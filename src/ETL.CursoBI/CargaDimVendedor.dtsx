@@ -12,8 +12,8 @@
   DTS:ObjectName="CargaDimVendedor"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{F19DF06E-2D0F-4A15-ACAA-2E3BF1E0388B}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{AADFA8D5-EFC4-4091-9696-DB3CDF4F10D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1229,35 +1229,35 @@ where [refTable].[CodigoLoja] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="156,42.6666666666667"
+          Size="156,43"
           Id="Package\DFT DimVendedor\Lookup DimLoja"
           TopLeft="154.833333333333,108.166666666666" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,43"
           Id="Package\DFT DimVendedor\Derived Column 1"
           TopLeft="150.833333333333,621.5" />
         <NodeLayout
-          Size="121.333333333334,42.6666666666667"
+          Size="121,43"
           Id="Package\DFT DimVendedor\Union All"
           TopLeft="172.166666666667,518.833333333333" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
+          Size="167,43"
           Id="Package\DFT DimVendedor\OLE DB Command"
           TopLeft="5.50000000000001,416.166666666666" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
+          Size="151,43"
           Id="Package\DFT DimVendedor\OLE DB Source"
           TopLeft="157.5,5.49999999999993" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,43"
           Id="Package\DFT DimVendedor\Insert Destination"
-          TopLeft="150.833333333333,724.166666666667" />
+          TopLeft="151.033333333333,723.966666666667" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
+          Size="155,43"
           Id="Package\DFT DimVendedor\Derived Column"
           TopLeft="17.5,313.5" />
         <NodeLayout
-          Size="209.333333333334,42.6666666666667"
+          Size="209,43"
           Id="Package\DFT DimVendedor\Slowly Changing Dimension"
           TopLeft="128.166666666667,210.833333333333" />
         <EdgeLayout
@@ -1279,9 +1279,7 @@ where [refTable].[CodigoLoja] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1303,9 +1301,7 @@ where [refTable].[CodigoLoja] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1327,9 +1323,7 @@ where [refTable].[CodigoLoja] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1363,9 +1357,7 @@ where [refTable].[CodigoLoja] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1466,30 +1458,41 @@ where [refTable].[CodigoLoja] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DimVendedor.Paths[Derived Column Output1]"
-          TopLeft="232.833333333333,664.166666666666">
+          TopLeft="232.933333333333,664.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,59.466666666667"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,51.966666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,51.966666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DimVendedor\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
