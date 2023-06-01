@@ -9,7 +9,7 @@ Neste treinamento, veremos inicialmente como utilizar a ferramenta de ETL da Mic
 
 No final deste treinamento, todos os participantes estarão aptos a criar uma ambiente completo uitlizando a Suíte de BI da Microsoft.
 
-Obs.: Todos os códigos utilizados nas aulas estarão disponíveis na estrutura deste repostório do GitHub.
+Obs.: Todos os códigos utilizados nas aulas estarão disponíveis na estrutura deste repositório do GitHub.
 
 Grato a todos,
 
